@@ -1,6 +1,7 @@
 import { useTheme } from './hooks/useTheme'
 import Navbar from './components/Navbar'
 import Hero from './components/Hero'
+import ProofBar from './components/ProofBar'
 
 function App() {
   const { theme } = useTheme()
@@ -11,6 +12,7 @@ function App() {
         <Navbar />
         <main className="pt-16">
           <Hero />
+          <ProofBar />
         </main>
       </div>
     </div>
