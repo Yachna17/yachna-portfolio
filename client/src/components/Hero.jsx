@@ -133,7 +133,7 @@ function Hero() {
             See my work →
           </a>
           <a
-            href="/resume.pdf"
+            href="/yachna_resume.pdf"
             download
             className="px-7 py-3.5 bg-transparent text-[#0A0A0A] dark:text-[#F5EDE8] text-sm font-semibold rounded-lg border border-[#CFC8C9] dark:border-[#50301E] hover:border-[#8A8082] dark:hover:border-[#8A6458] hover:bg-[#F5F0F1] dark:hover:bg-[#311E14] transition-all duration-200"
           >
