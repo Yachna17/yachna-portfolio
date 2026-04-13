@@ -1,17 +1,19 @@
-const express = require('express')
-const router = express.Router()
-const skillController = require('../controllers/skillController')
-const projectController = require('../controllers/projectController')
-const contactController = require('../controllers/contactController')
-const { contactLimiter } = require('../middleware/rateLimiter')
+const express = require("express");
+const router = express.Router();
+const skillController = require("../controllers/skillController");
+const projectController = require("../controllers/projectController");
+const contactController = require("../controllers/contactController");
+const certificationController = require("../controllers/certificationController");
+const { contactLimiter } = require("../middleware/rateLimiter");
 
-router.get('/skills', skillController.getAll)
-router.get('/projects', projectController.getAll)
-router.post('/contact', contactLimiter, contactController.send)
+router.get("/skills", skillController.getAll);
+router.get("/projects", projectController.getAll);
+router.get("/certifications", certificationController.getAll);
+router.post("/contact", contactLimiter, contactController.send);
 
 // Test route commented out for now
 // router.get('/test', (req, res) => {
 //   res.json({ message: 'API is working' })
 // })
 
-module.exports = router
+module.exports = router;
