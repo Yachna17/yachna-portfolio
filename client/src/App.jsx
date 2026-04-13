@@ -4,6 +4,7 @@ import Hero from './components/Hero'
 import ProofBar from './components/ProofBar'
 import About from './components/About'
 import Skills from './components/Skills'
+import Projects from './components/Projects'
 
 function App() {
   const { theme } = useTheme()
@@ -17,6 +18,7 @@ function App() {
           <ProofBar />
           <About />
           <Skills />
+          <Projects />
         </main>
       </div>
     </div>
