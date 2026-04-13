@@ -7,6 +7,7 @@ import Skills from './components/Skills'
 import Projects from './components/Projects'
 import Education from './components/Education'
 import Contact from './components/Contact'
+import Footer from './components/Footer'
 
 function App() {
   const { theme } = useTheme()
@@ -24,6 +25,7 @@ function App() {
           <Education />
           <Contact />
         </main>
+        <Footer />
       </div>
     </div>
   )
