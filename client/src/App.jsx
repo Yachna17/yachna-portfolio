@@ -3,6 +3,7 @@ import Navbar from './components/Navbar'
 import Hero from './components/Hero'
 import ProofBar from './components/ProofBar'
 import About from './components/About'
+import Skills from './components/Skills'
 
 function App() {
   const { theme } = useTheme()
@@ -15,6 +16,7 @@ function App() {
           <Hero />
           <ProofBar />
           <About />
+          <Skills />
         </main>
       </div>
     </div>
