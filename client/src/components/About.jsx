@@ -1,6 +1,23 @@
 import { motion } from 'framer-motion'
+import { useEffect, useState } from 'react'
+import api from '../utils/api'
 
 function About() {
+  const [currently, setCurrently] = useState(
+    'Building this portfolio (MERN + Admin Panel)'
+  )
+
+  useEffect(() => {
+    api
+      .get('/api/currently')
+      .then((res) => {
+        if (res.data.success && res.data.data) {
+          setCurrently(res.data.data)
+        }
+      })
+      .catch(() => {})
+  }, [])
+
   return (
     <section id="about" className="py-28 px-6 bg-[#F7F4F4] dark:bg-[#221409]">
       <div className="max-w-5xl mx-auto">
@@ -59,7 +76,7 @@ function About() {
               <span className="text-[#710014] dark:text-[#C5002A] font-medium">
                 currently →
               </span>
-              <span>Building this portfolio (MERN + Admin Panel)</span>
+              <span>{currently}</span>
             </div>
 
             {/* ACTION BUTTONS */}
