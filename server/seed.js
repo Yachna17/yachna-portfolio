@@ -65,22 +65,26 @@ const skills = [
 
 const projects = [
   {
-    title: "Gantavia",
-    description:
-      "A full-stack travel companion web app for destination exploration, trip planning, and booking management. Features real-time weather API, Google Maps integration, and JWT authentication.",
-    techStack: ["React.js", "Node.js", "Express", "MongoDB", "JWT", "Tailwind"],
-    liveUrl: "",
-    githubUrl: "https://github.com/Yachna17/gantavia",
-    featured: true,
-    order: 0,
-  },
-  {
     title: "YASDEV",
     description:
       "Frontend developer role. Built and maintained responsive components using TypeScript and Next.js for a professional web presence.",
     techStack: ["TypeScript", "Next.js", "Tailwind CSS"],
     liveUrl: "https://www.yasdev.com",
     githubUrl: "",
+    image: "/yasdev-thumb.png",
+    video: "/videos/yasdev.mp4",
+    featured: true,
+    order: 0,
+  },
+  {
+    title: "Gantavia",
+    description:
+      "A full-stack travel companion web app for destination exploration, trip planning, and booking management. Features real-time weather API, Google Maps integration, and JWT authentication.",
+    techStack: ["React.js", "Node.js", "Express", "MongoDB", "JWT", "Tailwind"],
+    liveUrl: "",
+    githubUrl: "https://github.com/Yachna17/gantavia",
+    image: "/gantavia-thumb.png",
+    video: "/videos/gantavia.mp4",
     featured: false,
     order: 1,
   },
@@ -90,7 +94,9 @@ const projects = [
       "Previous personal portfolio. Responsive design with contact form, deployed with custom domain on Vercel.",
     techStack: ["React.js", "JavaScript", "CSS"],
     liveUrl: "https://yachna.cv",
-    githubUrl: "",
+    githubUrl: "https://github.com/Yachna17/personal-website",
+    image: "/portfolio_v1.png",
+    video: "",
     featured: false,
     order: 2,
   },

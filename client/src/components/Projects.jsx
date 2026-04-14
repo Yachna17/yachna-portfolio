@@ -5,28 +5,31 @@ import api from '../utils/api'
 const fallbackProjects = [
   {
     _id: '1',
-    title: 'Gantavia',
-    description:
-      'A full-stack travel companion web app for destination exploration, trip planning, and booking management. Features real-time weather API, Google Maps integration, and JWT authentication.',
-    techStack: ['React.js', 'Node.js', 'Express', 'MongoDB', 'JWT', 'Tailwind'],
-    liveUrl: '',
-    githubUrl: 'https://github.com/Yachna17/gantavia',
-    image: '',
-    featured: true,
-    order: 0,
-  },
-  {
-    _id: '2',
     title: 'YASDEV',
     description:
       'Frontend developer role. Built and maintained responsive components using TypeScript and Next.js for a professional web presence.',
     techStack: ['TypeScript', 'Next.js', 'Tailwind CSS'],
     liveUrl: 'https://www.yasdev.com',
     githubUrl: '',
-    image: '',
+    image: '/yasdev-thumb.png',
+    featured: true,
+    order: 0,
+  },
+
+  {
+    _id: '2',
+    title: 'Gantavia',
+    description:
+      'A full-stack travel companion web app for destination exploration, trip planning, and booking management. Features real-time weather API, Google Maps integration, and JWT authentication.',
+    techStack: ['React.js', 'Node.js', 'Express', 'MongoDB', 'JWT', 'Tailwind'],
+    liveUrl: '',
+    githubUrl: '',
+    image: '/gantavia-thumb.png',
+    video: '/videos/gantavia.mp4',
     featured: false,
     order: 1,
   },
+
   {
     _id: '3',
     title: 'Portfolio v1',
@@ -142,21 +145,30 @@ function Projects() {
             </div>
 
             {/* RIGHT — PREVIEW */}
-            <div className="min-h-[260px] lg:min-h-full bg-[#F7F4F4] dark:bg-[#1E1208] border-t lg:border-t-0 lg:border-l border-[#E4DFE0] dark:border-[#3D2416] flex flex-col items-center justify-center gap-3 text-[#C0B8B9] dark:text-[#52352A] font-mono text-xs">
-              {featured.image ? (
+            <div className="min-h-[260px] lg:min-h-full bg-[#F7F4F4] dark:bg-[#1E1208] border-t lg:border-t-0 lg:border-l border-[#E4DFE0] dark:border-[#3D2416] overflow-hidden">
+              {featured.video ? (
+                <video
+                  src={featured.video}
+                  autoPlay
+                  muted
+                  loop
+                  playsInline
+                  className="w-full h-full object-cover"
+                />
+              ) : featured.image ? (
                 <img
                   src={featured.image}
                   alt={featured.title}
                   className="w-full h-full object-cover"
                 />
               ) : (
-                <>
+                <div className="w-full h-full min-h-[260px] flex flex-col items-center justify-center gap-3 text-[#C0B8B9] dark:text-[#52352A] font-mono text-xs">
                   <div className="w-12 h-12 rounded-full border border-[#E4DFE0] dark:border-[#3D2416] bg-[#FDF5F6] dark:bg-[#2A1010] flex items-center justify-center text-lg">
                     ▶
                   </div>
                   <span>add screen recording</span>
                   <span className="text-[10px]">15–20s · mp4 · muted loop</span>
-                </>
+                </div>
               )}
             </div>
           </motion.div>
