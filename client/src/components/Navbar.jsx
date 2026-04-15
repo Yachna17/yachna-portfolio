@@ -1,5 +1,9 @@
 import { useState, useEffect } from 'react'
 import { useTheme } from '../hooks/useTheme'
+import { useSound } from '../hooks/useSound'
+import { HiSpeakerWave, HiSpeakerXMark } from 'react-icons/hi2'
+import { HiMenu, HiX } from 'react-icons/hi'
+import { HiSun, HiMoon } from 'react-icons/hi2'
 
 function Navbar() {
   const { theme, toggleTheme } = useTheme()
@@ -19,6 +23,18 @@ function Navbar() {
     { label: 'Education', href: '#education' },
     { label: 'Contact', href: '#contact' },
   ]
+
+  const { play } = useSound()
+  const [soundOn, setSoundOn] = useState(
+    () => localStorage.getItem('sound') === 'true'
+  )
+
+  const toggleSound = () => {
+    const next = !soundOn
+    setSoundOn(next)
+    localStorage.setItem('sound', next.toString())
+    if (next) play('chime')
+  }
 
   return (
     <>
@@ -52,6 +68,7 @@ function Navbar() {
             <a
               key={link.label}
               href={link.href}
+              onMouseEnter={() => play('tick')}
               className="text-sm font-medium text-[#4A4244] dark:text-[#C4A898] hover:text-[#0A0A0A] dark:hover:text-[#F5EDE8] transition-colors duration-200"
             >
               {link.label}
@@ -64,35 +81,54 @@ function Navbar() {
           {/* THEME TOGGLE */}
           <div className="flex items-center gap-1 bg-[#F5F0F1] dark:bg-[#311E14] border border-[#E4DFE0] dark:border-[#3D2416] rounded-full px-1.5 py-1">
             <button
-              onClick={() => theme === 'dark' && toggleTheme()}
+              onClick={() => {
+                theme === 'dark' && toggleTheme()
+                play('click')
+              }}
               className={`text-xs px-3 py-1 rounded-full transition-all duration-200 font-mono ${
                 theme === 'light'
                   ? 'bg-white dark:bg-[#271810] text-[#0A0A0A] shadow-sm'
                   : 'text-[#8A6458]'
               }`}
             >
-              ☀
+              <HiSun className="text-sm" />
             </button>
             <button
-              onClick={() => theme === 'light' && toggleTheme()}
+              onClick={() => {
+                theme === 'light' && toggleTheme()
+                play('click')
+              }}
               className={`text-xs px-3 py-1 rounded-full transition-all duration-200 font-mono ${
                 theme === 'dark'
                   ? 'bg-[#271810] text-[#F5EDE8] shadow-sm'
                   : 'text-[#8A8082]'
               }`}
             >
-              ☾
+              <HiMoon className="text-sm" />
             </button>
           </div>
 
           {/* SOUND TOGGLE */}
-          <button className="w-9 h-9 flex items-center justify-center border border-[#E4DFE0] dark:border-[#3D2416] rounded-lg text-sm text-[#4A4244] dark:text-[#C4A898] hover:border-[#CFC8C9] dark:hover:border-[#50301E] hover:bg-[#F5F0F1] dark:hover:bg-[#311E14] transition-all duration-200">
-            🔈
+          <button
+            onClick={toggleSound}
+            title={soundOn ? 'Sound on' : 'Sound off'}
+            className={`w-9 h-9 flex items-center justify-center border rounded-lg text-sm transition-all duration-200 ${
+              soundOn
+                ? 'border-[#710014] dark:border-[#C5002A] text-[#710014] dark:text-[#C5002A] bg-[#FDF5F6] dark:bg-[#2A1010]'
+                : 'border-[#E4DFE0] dark:border-[#3D2416] text-[#4A4244] dark:text-[#C4A898] hover:border-[#CFC8C9] dark:hover:border-[#50301E] hover:bg-[#F5F0F1] dark:hover:bg-[#311E14]'
+            }`}
+          >
+            {soundOn ? (
+              <HiSpeakerWave className="text-base" />
+            ) : (
+              <HiSpeakerXMark className="text-base" />
+            )}
           </button>
 
           {/* HIRE ME */}
           <a
             href="#contact"
+            onClick={() => play('pop')}
             className="h-9 px-4 bg-[#710014] dark:bg-[#C5002A] text-white text-sm font-semibold rounded-lg hover:bg-[#5A0010] dark:hover:bg-[#E0002F] transition-colors duration-200"
             style={{ display: 'flex', alignItems: 'center' }}
           >
@@ -106,13 +142,21 @@ function Navbar() {
             onClick={toggleTheme}
             className="w-8 h-8 flex items-center justify-center border border-[#E4DFE0] dark:border-[#3D2416] rounded-lg text-xs"
           >
-            {theme === 'light' ? '☾' : '☀'}
+            {theme === 'light' ? (
+              <HiMoon className="text-sm" />
+            ) : (
+              <HiSun className="text-sm" />
+            )}
           </button>
           <button
             onClick={() => setMenuOpen(!menuOpen)}
             className="w-8 h-8 flex items-center justify-center border border-[#E4DFE0] dark:border-[#3D2416] rounded-lg text-sm font-bold text-[#0A0A0A] dark:text-[#F5EDE8]"
           >
-            {menuOpen ? '✕' : '☰'}
+            {menuOpen ? (
+              <HiX className="text-lg" />
+            ) : (
+              <HiMenu className="text-lg" />
+            )}
           </button>
         </div>
       </nav>
@@ -124,7 +168,10 @@ function Navbar() {
             <a
               key={link.label}
               href={link.href}
-              onClick={() => setMenuOpen(false)}
+              onClick={() => {
+                setMenuOpen(false)
+                play('tick')
+              }}
               className="text-3xl font-head font-bold text-[#0A0A0A] dark:text-[#F5EDE8] hover:text-[#710014] dark:hover:text-[#C5002A] transition-colors"
             >
               {link.label}
@@ -132,7 +179,10 @@ function Navbar() {
           ))}
           <a
             href="#contact"
-            onClick={() => setMenuOpen(false)}
+            onClick={() => {
+              setMenuOpen(false)
+              play('pop')
+            }}
             className="mt-4 px-8 py-3 bg-[#710014] dark:bg-[#C5002A] text-white font-semibold rounded-lg text-lg"
           >
             Hire me

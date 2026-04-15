@@ -4,9 +4,11 @@ import { useForm } from 'react-hook-form'
 import api from '../utils/api'
 import { FaLinkedinIn, FaGithub } from 'react-icons/fa'
 import { MdEmail } from 'react-icons/md'
+import { useSound } from '../hooks/useSound'
 
 function Contact() {
   const [status, setStatus] = useState('idle') // idle | loading | success | error
+  const { play } = useSound()
 
   const {
     register,
@@ -20,6 +22,7 @@ function Contact() {
     try {
       await api.post('/api/contact', data)
       setStatus('success')
+      play('chime')
       reset()
     } catch {
       setStatus('error')
@@ -70,6 +73,7 @@ function Contact() {
                 href="https://www.linkedin.com/in/yachna-r/"
                 target="_blank"
                 rel="noreferrer"
+                onClick={() => play('pop')}
                 className="flex items-center gap-3 px-4 py-3 bg-white dark:bg-[#271810] border border-[#E4DFE0] dark:border-[#3D2416] rounded-lg text-sm text-[#4A4244] dark:text-[#C4A898] hover:border-[#CFC8C9] dark:hover:border-[#50301E] hover:text-[#0A0A0A] dark:hover:text-[#F5EDE8] transition-all duration-200"
               >
                 <div className="w-6 h-6 bg-[#F7F4F4] dark:bg-[#311E14] rounded flex items-center justify-center">
@@ -82,6 +86,7 @@ function Contact() {
                 href="https://github.com/Yachna17"
                 target="_blank"
                 rel="noreferrer"
+                onClick={() => play('pop')}
                 className="flex items-center gap-3 px-4 py-3 bg-white dark:bg-[#271810] border border-[#E4DFE0] dark:border-[#3D2416] rounded-lg text-sm text-[#4A4244] dark:text-[#C4A898] hover:border-[#CFC8C9] dark:hover:border-[#50301E] hover:text-[#0A0A0A] dark:hover:text-[#F5EDE8] transition-all duration-200"
               >
                 <div className="w-6 h-6 bg-[#F7F4F4] dark:bg-[#311E14] rounded flex items-center justify-center">
@@ -92,6 +97,7 @@ function Contact() {
 
               <a
                 href="mailto:yachnarupwal@gmail.com"
+                onClick={() => play('pop')}
                 className="flex items-center gap-3 px-4 py-3 bg-white dark:bg-[#271810] border border-[#E4DFE0] dark:border-[#3D2416] rounded-lg text-sm text-[#4A4244] dark:text-[#C4A898] hover:border-[#CFC8C9] dark:hover:border-[#50301E] hover:text-[#0A0A0A] dark:hover:text-[#F5EDE8] transition-all duration-200"
               >
                 <div className="w-6 h-6 bg-[#F7F4F4] dark:bg-[#311E14] rounded flex items-center justify-center">
@@ -121,7 +127,10 @@ function Contact() {
                   I&apos;ll reply within 24 hours.
                 </p>
                 <button
-                  onClick={() => setStatus('idle')}
+                  onClick={() => {
+                    setStatus('idle')
+                    play('tick')
+                  }}
                   className="font-mono text-xs text-[#710014] dark:text-[#C5002A] hover:underline mt-2"
                 >
                   Send another →
@@ -220,6 +229,7 @@ function Contact() {
                 {/* SUBMIT */}
                 <button
                   type="submit"
+                  onClick={() => play('pop')}
                   disabled={status === 'loading'}
                   className="w-full py-3.5 bg-[#710014] dark:bg-[#C5002A] text-white text-sm font-semibold rounded-lg hover:bg-[#5A0010] dark:hover:bg-[#E0002F] transition-colors duration-200 disabled:opacity-60 disabled:cursor-not-allowed"
                 >

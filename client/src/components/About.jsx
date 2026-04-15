@@ -1,11 +1,14 @@
 import { motion } from 'framer-motion'
 import { useEffect, useState } from 'react'
 import api from '../utils/api'
+import { useSound } from '../hooks/useSound'
 
 function About() {
   const [currently, setCurrently] = useState(
     'Building this portfolio (MERN + Admin Panel)'
   )
+
+  const { play } = useSound()
 
   useEffect(() => {
     api
@@ -84,6 +87,7 @@ function About() {
               <a
                 href="/yachna_resume.pdf"
                 download
+                onClick={() => play('pop')}
                 className="px-5 py-2.5 bg-[#710014] dark:bg-[#C5002A] text-white text-sm font-semibold rounded-lg hover:bg-[#5A0010] dark:hover:bg-[#E0002F] transition-colors duration-200"
               >
                 Download resume ↓
@@ -92,6 +96,7 @@ function About() {
                 href="https://github.com/Yachna17"
                 target="_blank"
                 rel="noreferrer"
+                onClick={() => play('pop')}
                 className="px-5 py-2.5 bg-transparent text-[#0A0A0A] dark:text-[#F5EDE8] text-sm font-semibold rounded-lg border border-[#CFC8C9] dark:border-[#50301E] hover:border-[#8A8082] dark:hover:border-[#8A6458] hover:bg-[#F5F0F1] dark:hover:bg-[#311E14] transition-all duration-200"
               >
                 View GitHub →

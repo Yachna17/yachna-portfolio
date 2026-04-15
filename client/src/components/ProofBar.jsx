@@ -2,7 +2,7 @@ import { useEffect, useRef, useState } from 'react'
 import { motion } from 'framer-motion'
 
 const stats = [
-  { num: 3, suffix: '', label: 'live projects' },
+  { num: 2, suffix: '', label: 'live projects' },
   { num: 1, suffix: '+', label: 'years building' },
   { num: 10, suffix: '+', label: 'technologies' },
   { num: 26, suffix: "'", label: 'MCA graduating' },

@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import api from '../utils/api'
+import { useSound } from '../hooks/useSound'
 
 const fallbackProjects = [
   {
@@ -46,6 +47,7 @@ const fallbackProjects = [
 
 function Projects() {
   const [projects, setProjects] = useState(fallbackProjects)
+  const { play } = useSound()
 
   useEffect(() => {
     api
@@ -126,6 +128,7 @@ function Projects() {
                     href={featured.liveUrl}
                     target="_blank"
                     rel="noreferrer"
+                    onClick={() => play('pop')}
                     className="flex items-center gap-1.5 px-4 py-2 bg-[#710014] dark:bg-[#C5002A] text-white text-xs font-semibold rounded-lg hover:bg-[#5A0010] dark:hover:bg-[#E0002F] transition-colors duration-200"
                   >
                     Live demo ↗
@@ -136,6 +139,7 @@ function Projects() {
                     href={featured.githubUrl}
                     target="_blank"
                     rel="noreferrer"
+                    onClick={() => play('pop')}
                     className="flex items-center gap-1.5 px-4 py-2 bg-transparent text-[#4A4244] dark:text-[#C4A898] text-xs font-semibold rounded-lg border border-[#E4DFE0] dark:border-[#3D2416] hover:border-[#CFC8C9] dark:hover:border-[#50301E] hover:text-[#0A0A0A] dark:hover:text-[#F5EDE8] transition-all duration-200"
                   >
                     GitHub →
@@ -223,6 +227,7 @@ function Projects() {
                     href={project.liveUrl}
                     target="_blank"
                     rel="noreferrer"
+                    onClick={() => play('pop')}
                     className="flex items-center gap-1 px-3 py-1.5 bg-[#710014] dark:bg-[#C5002A] text-white text-xs font-semibold rounded-lg hover:bg-[#5A0010] dark:hover:bg-[#E0002F] transition-colors duration-200"
                   >
                     Live ↗
@@ -233,6 +238,7 @@ function Projects() {
                     href={project.githubUrl}
                     target="_blank"
                     rel="noreferrer"
+                    onClick={() => play('pop')}
                     className="flex items-center gap-1 px-3 py-1.5 bg-transparent text-[#4A4244] dark:text-[#C4A898] text-xs font-semibold rounded-lg border border-[#E4DFE0] dark:border-[#3D2416] hover:border-[#CFC8C9] dark:hover:border-[#50301E] transition-all duration-200"
                   >
                     GitHub →

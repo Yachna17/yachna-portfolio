@@ -1,6 +1,7 @@
 import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import api from '../utils/api'
+import { useSound } from '../hooks/useSound'
 
 const categories = [
   'Frontend',
@@ -160,6 +161,7 @@ function SkillIcon({ icon, ReactIcon }) {
 function Skills() {
   const [skills, setSkills] = useState(fallbackSkills)
   const [openCategory, setOpenCategory] = useState('Frontend')
+  const { play } = useSound()
 
   useEffect(() => {
     api
@@ -216,6 +218,7 @@ function Skills() {
                 {getSkillsByCategory(category).map((skill, i) => (
                   <motion.div
                     key={skill._id}
+                    onMouseEnter={() => play('shimmer')}
                     className="flex items-center gap-2.5 px-3 py-2.5 bg-white dark:bg-[#271810] border border-[#E4DFE0] dark:border-[#3D2416] rounded-lg text-sm font-medium text-[#0A0A0A] dark:text-[#F5EDE8] cursor-default transition-all duration-200 hover:border-[#710014] dark:hover:border-[#C5002A] hover:bg-[#FDF5F6] dark:hover:bg-[#2A1010]"
                     initial={{ opacity: 0, y: 10 }}
                     whileInView={{ opacity: 1, y: 0 }}

@@ -1,5 +1,6 @@
 import { useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
+import { useSound } from '../hooks/useSound'
 
 function Hero() {
   const floatingBadgeRef = useRef(null)
@@ -31,6 +32,8 @@ function Hero() {
       transition: { duration: 0.5, ease: [0.25, 0.1, 0.25, 1] },
     },
   }
+
+  const { play } = useSound()
 
   return (
     <section className="relative min-h-screen flex flex-col items-center justify-center text-center px-6 bg-[#FAFAFA] dark:bg-[#1E1208] overflow-hidden">
@@ -116,7 +119,7 @@ function Hero() {
           Full stack developer
           <span className="mx-3 text-[#C0B8B9] dark:text-[#52352A]">·</span>
           MCA &apos;26
-          <span className="mx-3 text-[#C0B8B9] dark:text-[#52352A]">·</span>3
+          <span className="mx-3 text-[#C0B8B9] dark:text-[#52352A]">·</span>2
           live projects
         </motion.p>
 
@@ -127,6 +130,7 @@ function Hero() {
         >
           <a
             href="#projects"
+            onClick={() => play('pop')}
             className="px-7 py-3.5 bg-[#710014] dark:bg-[#C5002A] text-white text-sm font-semibold rounded-lg hover:bg-[#5A0010] dark:hover:bg-[#E0002F] transition-all duration-200"
             style={{ boxShadow: '0 2px 8px rgba(113,0,20,0.25)' }}
           >
@@ -135,6 +139,7 @@ function Hero() {
           <a
             href="/yachna_resume.pdf"
             download
+            onClick={() => play('pop')}
             className="px-7 py-3.5 bg-transparent text-[#0A0A0A] dark:text-[#F5EDE8] text-sm font-semibold rounded-lg border border-[#CFC8C9] dark:border-[#50301E] hover:border-[#8A8082] dark:hover:border-[#8A6458] hover:bg-[#F5F0F1] dark:hover:bg-[#311E14] transition-all duration-200"
           >
             Download resume ↓
