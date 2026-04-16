@@ -54,25 +54,34 @@ function CountUp({ target, suffix }) {
 function ProofBar() {
   return (
     <motion.div
-      className="flex bg-[#F7F4F4] dark:bg-[#221409] border-t border-b border-[#E4DFE0] dark:border-[#3D2416]"
+      className="flex bg-[#F7F4F4] dark:bg-[rgba(0,0,0,0.15)] dark:backdrop-blur-xl border-t border-b border-[#E4DFE0] dark:border-[rgba(255,255,255,0.07)] relative"
       initial={{ opacity: 0 }}
       whileInView={{ opacity: 1 }}
       transition={{ duration: 0.5 }}
       viewport={{ once: true }}
     >
+      {/* top accent line */}
+      <div
+        className="absolute top-0 left-0 right-0 h-px hidden dark:block"
+        style={{
+          background:
+            'linear-gradient(90deg, transparent, rgba(255,109,31,0.2), transparent)',
+        }}
+      />
+
       {stats.map((stat, index) => (
         <div
           key={stat.label}
-          className={`flex-1 py-5 text-center ${
+          className={`flex-1 py-5 text-center relative ${
             index !== stats.length - 1
-              ? 'border-r border-[#E4DFE0] dark:border-[#3D2416]'
+              ? 'border-r border-[#E4DFE0] dark:border-[rgba(255,255,255,0.07)]'
               : ''
           }`}
         >
-          <div className="font-head text-2xl font-bold text-[#0A0A0A] dark:text-[#F5EDE8] tracking-tight">
+          <div className="font-head text-2xl font-bold text-[#0A0A0A] dark:text-[#F0EEE8] tracking-tight">
             <CountUp target={stat.num} suffix={stat.suffix} />
           </div>
-          <div className="font-mono text-[10px] uppercase tracking-widest text-[#8A8082] dark:text-[#8A6458] mt-1">
+          <div className="font-mono text-[10px] uppercase tracking-widest text-[#8A8082] dark:text-[#4A4540] mt-1">
             {stat.label}
           </div>
         </div>

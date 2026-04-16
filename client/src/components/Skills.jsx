@@ -2,6 +2,7 @@ import { useEffect, useState } from 'react'
 import { motion } from 'framer-motion'
 import api from '../utils/api'
 import { useSound } from '../hooks/useSound'
+import { HiArrowRight } from 'react-icons/hi2'
 
 const categories = [
   'Frontend',
@@ -103,12 +104,7 @@ const fallbackSkills = [
     icon: 'devicon-jira-plain colored',
     category: 'Methodologies',
   },
-  {
-    _id: '16',
-    name: 'Scrum',
-    icon: 'SCR',
-    category: 'Methodologies',
-  },
+  { _id: '16', name: 'Scrum', icon: 'SCR', category: 'Methodologies' },
   {
     _id: '17',
     name: 'Kotlin',
@@ -127,32 +123,19 @@ const fallbackSkills = [
     icon: 'devicon-androidstudio-plain colored',
     category: 'Other',
   },
-  {
-    _id: '20',
-    name: 'Tableau',
-    icon: 'Tb',
-    category: 'Other',
-  },
-  {
-    _id: '21',
-    name: 'Cisco Packet Tracer',
-    icon: 'CPT',
-    category: 'Other',
-  },
+  { _id: '20', name: 'Tableau', icon: 'Tb', category: 'Other' },
+  { _id: '21', name: 'Cisco Packet Tracer', icon: 'CPT', category: 'Other' },
 ]
 
 const learningNext = ['DSA', 'Next.js', 'AWS']
 
-function SkillIcon({ icon, ReactIcon }) {
-  if (ReactIcon) {
-    return <ReactIcon className="text-lg" />
-  }
+function SkillIcon({ icon }) {
   const isDevicon = icon.startsWith('devicon')
   if (isDevicon) {
     return <i className={`${icon} text-lg`} />
   }
   return (
-    <span className="text-xs font-bold text-[#4A4244] dark:text-[#C4A898]">
+    <span className="text-xs font-bold text-[#4A4244] dark:text-[#958E85]">
       {icon}
     </span>
   )
@@ -178,10 +161,11 @@ function Skills() {
     skills.filter((s) => s.category === category)
 
   return (
-    <section id="skills" className="py-28 px-6 bg-[#FAFAFA] dark:bg-[#1E1208]">
+    <section id="skills" className="py-28 px-6 bg-[#FAFAFA] dark:bg-[#181818]">
       <div className="max-w-5xl mx-auto">
+        {/* EYEBROW */}
         <motion.p
-          className="font-mono text-xs text-[#710014] dark:text-[#C5002A] uppercase tracking-widest mb-3"
+          className="font-mono text-xs text-[#710014] dark:text-[#FF6D1F] dark:[text-shadow:0_0_15px_rgba(255,109,31,0.4)] uppercase tracking-widest mb-3"
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
@@ -190,8 +174,9 @@ function Skills() {
           // skills
         </motion.p>
 
+        {/* HEADING */}
         <motion.h2
-          className="font-head font-bold text-[#0A0A0A] dark:text-[#F5EDE8] tracking-tight mb-12"
+          className="font-head font-bold text-[#0A0A0A] dark:text-[#F0EEE8] tracking-tight mb-12"
           style={{ fontSize: 'clamp(28px, 3vw, 42px)' }}
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -211,15 +196,17 @@ function Skills() {
               transition={{ duration: 0.5, delay: catIndex * 0.08 }}
               viewport={{ once: true }}
             >
-              <div className="font-mono text-[10px] uppercase tracking-widest text-[#8A8082] dark:text-[#8A6458] pb-2 border-b border-[#E4DFE0] dark:border-[#3D2416] mb-3">
+              {/* CATEGORY HEADER */}
+              <div className="font-mono text-[10px] uppercase tracking-widest text-[#8A8082] dark:text-[#4A4540] pb-2 border-b border-[#E4DFE0] dark:border-[rgba(255,255,255,0.07)] mb-3">
                 {category}
               </div>
+
               <div className="flex flex-col gap-1.5">
                 {getSkillsByCategory(category).map((skill, i) => (
                   <motion.div
                     key={skill._id}
                     onMouseEnter={() => play('shimmer')}
-                    className="flex items-center gap-2.5 px-3 py-2.5 bg-white dark:bg-[#271810] border border-[#E4DFE0] dark:border-[#3D2416] rounded-lg text-sm font-medium text-[#0A0A0A] dark:text-[#F5EDE8] cursor-default transition-all duration-200 hover:border-[#710014] dark:hover:border-[#C5002A] hover:bg-[#FDF5F6] dark:hover:bg-[#2A1010]"
+                    className="flex items-center gap-2.5 px-3 py-2.5 bg-white dark:bg-[rgba(255,255,255,0.03)] dark:backdrop-blur-xl border border-[rgba(0,0,0,0.08)] dark:border-[rgba(255,255,255,0.06)] rounded-lg text-sm font-medium text-[#0A0A0A] dark:text-[#F0EEE8] cursor-default transition-all duration-200 hover:border-[#710014] dark:hover:border-[rgba(255,109,31,0.4)] hover:bg-[#FDF5F6] dark:hover:bg-[rgba(255,109,31,0.06)] dark:[box-shadow:inset_0_1px_0_rgba(255,255,255,0.06),0_2px_8px_rgba(0,0,0,0.2)] dark:hover:[box-shadow:0_0_15px_rgba(255,109,31,0.1),inset_0_1px_0_rgba(255,255,255,0.08),0_4px_15px_rgba(0,0,0,0.3)] dark:hover:[transform:translateX(3px)]"
                     initial={{ opacity: 0, y: 10 }}
                     whileInView={{ opacity: 1, y: 0 }}
                     transition={{
@@ -228,7 +215,7 @@ function Skills() {
                     }}
                     viewport={{ once: true }}
                   >
-                    <div className="w-6 h-6 rounded bg-[#F7F4F4] dark:bg-[#311E14] flex items-center justify-center flex-shrink-0">
+                    <div className="w-6 h-6 rounded bg-[#F7F4F4] dark:bg-[rgba(255,255,255,0.06)] flex items-center justify-center flex-shrink-0">
                       <SkillIcon icon={skill.icon} />
                     </div>
                     {skill.name}
@@ -244,7 +231,7 @@ function Skills() {
           {categories.map((category) => (
             <div
               key={category}
-              className="border border-[#E4DFE0] dark:border-[#3D2416] rounded-lg overflow-hidden"
+              className="border border-[rgba(0,0,0,0.08)] dark:border-[rgba(255,255,255,0.07)] rounded-lg overflow-hidden"
             >
               <button
                 onClick={() =>
@@ -252,19 +239,21 @@ function Skills() {
                 }
                 className={`w-full flex items-center justify-between px-4 py-3 font-mono text-xs uppercase tracking-widest transition-colors duration-200 ${
                   openCategory === category
-                    ? 'bg-[#FDF5F6] dark:bg-[#2A1010] text-[#710014] dark:text-[#C5002A]'
-                    : 'bg-white dark:bg-[#271810] text-[#4A4244] dark:text-[#C4A898]'
+                    ? 'bg-[#FDF5F6] dark:bg-[rgba(255,109,31,0.08)] text-[#710014] dark:text-[#FF6D1F]'
+                    : 'bg-white dark:bg-[rgba(255,255,255,0.03)] text-[#4A4244] dark:text-[#958E85]'
                 }`}
               >
                 {category}
-                <span>{openCategory === category ? '▲' : '▼'}</span>
+                <span className="text-[10px]">
+                  {openCategory === category ? '▲' : '▼'}
+                </span>
               </button>
               {openCategory === category && (
-                <div className="p-3 bg-[#FAFAFA] dark:bg-[#1E1208] flex flex-wrap gap-2">
+                <div className="p-3 bg-[#FAFAFA] dark:bg-[rgba(0,0,0,0.15)] flex flex-wrap gap-2">
                   {getSkillsByCategory(category).map((skill) => (
                     <div
                       key={skill._id}
-                      className="flex items-center gap-2 px-3 py-1.5 bg-white dark:bg-[#271810] border border-[#E4DFE0] dark:border-[#3D2416] rounded-lg text-xs font-medium text-[#0A0A0A] dark:text-[#F5EDE8]"
+                      className="flex items-center gap-2 px-3 py-1.5 bg-white dark:bg-[rgba(255,255,255,0.04)] dark:backdrop-blur-xl border border-[rgba(0,0,0,0.08)] dark:border-[rgba(255,255,255,0.07)] rounded-lg text-xs font-medium text-[#0A0A0A] dark:text-[#F0EEE8]"
                     >
                       <SkillIcon icon={skill.icon} />
                       {skill.name}
@@ -278,20 +267,20 @@ function Skills() {
 
         {/* LEARNING NEXT */}
         <motion.div
-          className="flex items-center gap-4 flex-wrap p-4 bg-white dark:bg-[#271810] border border-[#E4DFE0] dark:border-[#3D2416] rounded-xl"
+          className="flex items-center gap-4 flex-wrap p-4 bg-white dark:bg-[rgba(255,255,255,0.03)] dark:backdrop-blur-xl border border-[rgba(0,0,0,0.08)] dark:border-[rgba(255,255,255,0.07)] rounded-xl dark:[box-shadow:inset_0_1px_0_rgba(255,255,255,0.06)]"
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5, delay: 0.4 }}
           viewport={{ once: true }}
         >
-          <span className="font-mono text-[10px] uppercase tracking-widest text-[#8A8082] dark:text-[#8A6458] whitespace-nowrap">
-            learning next →
+          <span className="font-mono text-[10px] uppercase tracking-widest text-[#8A8082] dark:text-[#4A4540] whitespace-nowrap flex items-center gap-1">
+            learning next <HiArrowRight className="text-[10px]" />
           </span>
           <div className="flex gap-2 flex-wrap">
             {learningNext.map((item) => (
               <span
                 key={item}
-                className="font-mono text-xs text-[#4A4244] dark:text-[#C4A898] border border-dashed border-[#CFC8C9] dark:border-[#50301E] rounded px-3 py-1"
+                className="font-mono text-xs text-[#4A4244] dark:text-[#958E85] border border-dashed border-[#CFC8C9] dark:border-[rgba(255,255,255,0.12)] rounded px-3 py-1 dark:bg-[rgba(255,255,255,0.02)]"
               >
                 {item}
               </span>
