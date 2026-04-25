@@ -21,18 +21,18 @@
   }
 
   .dark {
-    --accent: #ff6d1f;
-    --accent-hover: #ff8c4a;
-    --accent-dim: rgba(255, 109, 31, 0.1);
-    --accent-glow: rgba(255, 109, 31, 0.25);
-    --bg: #181818;
+    --accent: #7a1525;
+    --accent-hover: #a02035;
+    --accent-dim: rgba(122, 21, 37, 0.15);
+    --accent-glow: rgba(122, 21, 37, 0.25);
+    --bg: #0a0808;
     --bg-card: rgba(255, 255, 255, 0.04);
     --bg-alt: rgba(0, 0, 0, 0.2);
-    --border: rgba(255, 255, 255, 0.08);
-    --border-mid: rgba(255, 255, 255, 0.12);
-    --t1: #f0eee8;
-    --t2: #958e85;
-    --t3: #4a4540;
+    --border: rgba(255, 255, 255, 0.06);
+    --border-mid: rgba(255, 255, 255, 0.1);
+    --t1: #f5f0f1;
+    --t2: #a89698;
+    --t3: #6b5658;
     --green: #22c55e;
     --amber: #f59e0b;
   }
@@ -57,7 +57,7 @@
   }
 
   .dark body {
-    background-color: #181818;
+    background-color: #0a0808;
   }
 }
 
@@ -81,9 +81,9 @@
   }
 
   .glass-card:hover {
-    border-color: rgba(255, 109, 31, 0.25);
+    border-color: rgba(122, 21, 37, 0.3);
     box-shadow:
-      0 0 20px rgba(255, 109, 31, 0.08),
+      0 0 20px rgba(122, 21, 37, 0.1),
       inset 0 1px 0 rgba(255, 255, 255, 0.09),
       0 12px 40px rgba(0, 0, 0, 0.4);
   }
@@ -121,12 +121,12 @@
   background:
     radial-gradient(
       ellipse 80% 60% at 20% 10%,
-      rgba(255, 109, 31, 0.05) 0%,
+      rgba(122, 21, 37, 0.07) 0%,
       transparent 60%
     ),
     radial-gradient(
       ellipse 60% 50% at 80% 90%,
-      rgba(255, 109, 31, 0.04) 0%,
+      rgba(122, 21, 37, 0.05) 0%,
       transparent 60%
     );
   pointer-events: none;
