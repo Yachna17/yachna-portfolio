@@ -43,14 +43,14 @@ const initSounds = () => {
     oscillator.stop(ctx.currentTime + duration)
   }
 
-  tickSound = () => makeBeep(800, 0.03, 0.06)
-  popSound = () => makeBeep(400, 0.06, 0.1, 'sine')
-  shimmerSound = () => makeBeep(1200, 0.08, 0.04)
-  clickSound = () => makeBeep(600, 0.05, 0.08)
+  tickSound = () => makeBeep(800, 0.03, 0.7)
+  popSound = () => makeBeep(400, 0.06, 0.8, 'sine')
+  shimmerSound = () => makeBeep(1200, 0.08, 0.6)
+  clickSound = () => makeBeep(600, 0.05, 0.75)
   chimeSound = () => {
-    makeBeep(523, 0.15, 0.1)
-    setTimeout(() => makeBeep(659, 0.15, 0.1), 133)
-    setTimeout(() => makeBeep(784, 0.3, 0.1), 266)
+    makeBeep(523, 0.15, 0.8)
+    setTimeout(() => makeBeep(659, 0.15, 0.8), 133)
+    setTimeout(() => makeBeep(784, 0.3, 0.8), 266)
   }
 }
 
