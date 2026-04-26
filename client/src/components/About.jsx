@@ -114,11 +114,19 @@ function About() {
           >
             <div className="bg-bg-card border border-border-base rounded-xl overflow-hidden transition-all duration-300">
               {/* PHOTO PLACEHOLDER */}
-              <div className="h-56 bg-bg-alt border-b border-border-base flex flex-col items-center justify-center gap-3 text-t3 font-mono text-xs">
-                <div className="w-16 h-16 rounded-full border-2 border-dashed border-border-mid bg-accent-dim flex items-center justify-center">
-                  <HiUser className="text-3xl text-accent" />
-                </div>
-                your photo here
+              <div className="border-b border-border-base overflow-hidden">
+                <img
+                  src="/yachna.jpeg"
+                  alt="Yachna"
+                  className="w-full object-cover"
+                  style={{
+                    objectPosition:
+                      '50% 10%' /* horizontal center, 10% from top */,
+                    transform:
+                      'scale(1.1)' /* zoom in slightly to crop bottom */,
+                    transformOrigin: 'top center' /* anchor zoom from top */,
+                  }}
+                />
               </div>
 
               {/* PROFILE META */}
