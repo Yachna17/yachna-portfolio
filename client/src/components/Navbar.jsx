@@ -37,49 +37,48 @@ function Navbar() {
 
   const navBg =
     theme === 'dark'
-      ? 'bg-[rgba(17,17,17,0.75)] backdrop-blur-2xl border-b border-[rgba(255,255,255,0.08)]'
-      : `bg-[#FAFAFA]/90 backdrop-blur-md ${scrolled ? 'border-b border-[rgba(0,0,0,0.08)]' : 'border-b border-transparent'}`
+      ? 'bg-[rgba(10,8,8,0.80)] backdrop-blur-2xl border-b border-border-base'
+      : `bg-[#FAFAFA]/90 backdrop-blur-md ${scrolled ? 'border-b border-border-base' : 'border-b border-transparent'}`
 
   return (
     <>
       <nav
         className={`fixed top-0 left-0 right-0 z-50 flex items-center justify-between px-10 h-16 transition-all duration-300 ${navBg}`}
       >
+        {/* LOGO */}
         <a
           href="#"
-          className="font-mono text-[19px] font-medium text-[#0A0A0A] dark:text-[#F0EEE8] tracking-tight"
+          className="font-mono text-[19px] font-medium text-t1 tracking-tight"
         >
           yachna
-          <span className="text-[#710014] dark:text-[#FF6D1F] dark:[text-shadow:0_0_20px_rgba(255,109,31,0.4)]">
-            .
-          </span>
+          <span className="text-accent">.</span>
         </a>
 
+        {/* DESKTOP NAV LINKS */}
         <div className="hidden md:flex items-center gap-8">
           {navLinks.map((link) => (
             <a
               key={link.label}
               href={link.href}
               onMouseEnter={() => play('tick')}
-              className="text-sm font-medium text-[#4A4244] dark:text-[#958E85] hover:text-[#0A0A0A] dark:hover:text-[#F0EEE8] transition-colors duration-200"
+              className="text-sm font-medium text-t2 hover:text-t1 transition-colors duration-200"
             >
               {link.label}
             </a>
           ))}
         </div>
 
+        {/* DESKTOP RIGHT */}
         <div className="hidden md:flex items-center gap-2">
           {/* THEME TOGGLE */}
-          <div className="flex items-center gap-1 bg-[#F5F0F1] dark:bg-[rgba(255,255,255,0.05)] dark:backdrop-blur-xl border border-[rgba(0,0,0,0.08)] dark:border-[rgba(255,255,255,0.08)] rounded-full px-1.5 py-1">
+          <div className="flex items-center gap-1 bg-bg-alt border border-border-base rounded-full px-1.5 py-1">
             <button
               onClick={() => {
                 theme === 'dark' && toggleTheme()
                 play('click')
               }}
               className={`text-xs px-3 py-1 rounded-full transition-all duration-200 font-mono flex items-center ${
-                theme === 'light'
-                  ? 'bg-white text-[#0A0A0A] shadow-sm'
-                  : 'text-[#4A4540]'
+                theme === 'light' ? 'bg-white text-t1 shadow-sm' : 'text-t3'
               }`}
             >
               <HiSun className="text-sm" />
@@ -90,9 +89,7 @@ function Navbar() {
                 play('click')
               }}
               className={`text-xs px-3 py-1 rounded-full transition-all duration-200 font-mono flex items-center ${
-                theme === 'dark'
-                  ? 'bg-[rgba(255,255,255,0.08)] text-[#F0EEE8] shadow-sm'
-                  : 'text-[#8A8082]'
+                theme === 'dark' ? 'bg-bg-card text-t1 shadow-sm' : 'text-t3'
               }`}
             >
               <HiMoon className="text-sm" />
@@ -104,8 +101,8 @@ function Navbar() {
             onClick={toggleSound}
             className={`w-9 h-9 flex items-center justify-center border rounded-lg text-sm transition-all duration-200 ${
               soundOn
-                ? 'border-[#710014] dark:border-[#FF6D1F] text-[#710014] dark:text-[#FF6D1F] bg-[rgba(113,0,20,0.05)] dark:bg-[rgba(255,109,31,0.08)]'
-                : 'border-[rgba(0,0,0,0.08)] dark:border-[rgba(255,255,255,0.08)] text-[#4A4244] dark:text-[#958E85] hover:border-[#710014] dark:hover:border-[#FF6D1F] dark:bg-[rgba(255,255,255,0.03)] dark:backdrop-blur-xl'
+                ? 'border-accent text-accent bg-accent-dim'
+                : 'border-border-base text-t2 hover:border-accent dark:bg-bg-card dark:backdrop-blur-xl'
             }`}
           >
             {soundOn ? (
@@ -119,17 +116,17 @@ function Navbar() {
           <a
             href="#contact"
             onClick={() => play('pop')}
-            className="flex items-center h-9 px-4 bg-[#710014] dark:bg-[#FF6D1F] text-white text-sm font-semibold rounded-lg hover:bg-[#5A0010] dark:hover:bg-[#FF8C4A] transition-all duration-200 dark:[box-shadow:0_0_20px_rgba(255,109,31,0.3)] dark:hover:[box-shadow:0_0_30px_rgba(255,109,31,0.5)]"
+            className="flex items-center h-9 px-4 bg-accent text-white text-sm font-semibold rounded-lg hover:bg-accent-hover transition-all duration-200"
           >
             Hire me
           </a>
         </div>
 
-        {/* MOBILE */}
+        {/* MOBILE BUTTONS */}
         <div className="flex md:hidden items-center gap-2">
           <button
             onClick={toggleTheme}
-            className="w-8 h-8 flex items-center justify-center border border-[rgba(0,0,0,0.08)] dark:border-[rgba(255,255,255,0.08)] dark:bg-[rgba(255,255,255,0.04)] dark:backdrop-blur-xl rounded-lg text-xs text-[#0A0A0A] dark:text-[#F0EEE8]"
+            className="w-8 h-8 flex items-center justify-center border border-border-base dark:bg-bg-card dark:backdrop-blur-xl rounded-lg text-xs text-t1"
           >
             {theme === 'light' ? (
               <HiMoon className="text-sm" />
@@ -139,7 +136,7 @@ function Navbar() {
           </button>
           <button
             onClick={() => setMenuOpen(!menuOpen)}
-            className="w-8 h-8 flex items-center justify-center border border-[rgba(0,0,0,0.08)] dark:border-[rgba(255,255,255,0.08)] dark:bg-[rgba(255,255,255,0.04)] dark:backdrop-blur-xl rounded-lg text-sm font-bold text-[#0A0A0A] dark:text-[#F0EEE8]"
+            className="w-8 h-8 flex items-center justify-center border border-border-base dark:bg-bg-card dark:backdrop-blur-xl rounded-lg text-sm font-bold text-t1"
           >
             {menuOpen ? (
               <HiX className="text-lg" />
@@ -152,7 +149,7 @@ function Navbar() {
 
       {/* MOBILE MENU */}
       {menuOpen && (
-        <div className="fixed inset-0 z-40 bg-[#FAFAFA] dark:bg-[rgba(17,17,17,0.95)] dark:backdrop-blur-2xl flex flex-col items-center justify-center gap-8 md:hidden">
+        <div className="fixed inset-0 z-40 bg-[#FAFAFA] dark:bg-[rgba(10,8,8,0.97)] dark:backdrop-blur-2xl flex flex-col items-center justify-center gap-8 md:hidden">
           {navLinks.map((link) => (
             <a
               key={link.label}
@@ -161,7 +158,7 @@ function Navbar() {
                 setMenuOpen(false)
                 play('tick')
               }}
-              className="text-3xl font-head font-bold text-[#0A0A0A] dark:text-[#F0EEE8] hover:text-[#710014] dark:hover:text-[#FF6D1F] transition-colors"
+              className="text-3xl font-head font-bold text-t1 hover:text-accent transition-colors"
             >
               {link.label}
             </a>
@@ -172,7 +169,7 @@ function Navbar() {
               setMenuOpen(false)
               play('pop')
             }}
-            className="mt-4 px-8 py-3 bg-[#710014] dark:bg-[#FF6D1F] text-white font-semibold rounded-lg text-lg dark:[box-shadow:0_0_25px_rgba(255,109,31,0.3)]"
+            className="mt-4 px-8 py-3 bg-accent hover:bg-accent-hover text-white font-semibold rounded-lg text-lg transition-all duration-200"
           >
             Hire me
           </a>

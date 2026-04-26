@@ -68,7 +68,7 @@ function Hero() {
               height: '500px',
               borderRadius: '50%',
               background:
-                'radial-gradient(circle, rgba(255,109,31,0.07) 0%, transparent 70%)',
+                'radial-gradient(circle, rgba(122,21,37,0.09) 0%, transparent 70%)',
               top: '-100px',
               left: '-100px',
               animation: 'float1 8s ease-in-out infinite',
@@ -81,7 +81,7 @@ function Hero() {
               height: '400px',
               borderRadius: '50%',
               background:
-                'radial-gradient(circle, rgba(255,140,74,0.05) 0%, transparent 70%)',
+                'radial-gradient(circle, rgba(160,32,53,0.06) 0%, transparent 70%)',
               bottom: '-50px',
               right: '-50px',
               animation: 'float2 10s ease-in-out infinite',
@@ -121,8 +121,8 @@ function Hero() {
           <div
             className={`inline-flex items-center gap-2 font-mono text-xs rounded-full px-4 py-2 ${
               isDark
-                ? 'bg-[rgba(255,255,255,0.05)] backdrop-blur-xl border border-[rgba(255,255,255,0.1)] text-[#958E85] shadow-[inset_0_1px_0_rgba(255,255,255,0.1),0_4px_20px_rgba(0,0,0,0.2)]'
-                : 'bg-white border border-[rgba(0,0,0,0.08)] text-[#4A4244] shadow-sm'
+                ? 'bg-bg-card backdrop-blur-xl border border-border-base text-t2 shadow-[inset_0_1px_0_rgba(255,255,255,0.1),0_4px_20px_rgba(0,0,0,0.2)]'
+                : 'bg-white border border-border-base text-t2 shadow-sm'
             }`}
           >
             <span
@@ -139,18 +139,18 @@ function Hero() {
         {/* HEADLINE */}
         <motion.h1
           variants={itemVariants}
-          className="font-head font-extrabold leading-[1.05] tracking-tight text-[#0A0A0A] dark:text-[#F0EEE8] mb-6"
+          className="font-head font-extrabold leading-[1.05] tracking-tight text-t1 mb-6"
           style={{
             fontSize: 'clamp(44px, 7vw, 88px)',
-            textShadow: isDark ? '0 0 80px rgba(255,109,31,0.1)' : 'none',
+            textShadow: isDark ? '0 0 80px rgba(122,21,37,0.12)' : 'none',
           }}
         >
           I build things
           <br />
           <span
             style={{
-              color: isDark ? '#FF6D1F' : '#710014',
-              textShadow: isDark ? '0 0 40px rgba(255,109,31,0.35)' : 'none',
+              color: isDark ? '#C9415A' : '#710014',
+              textShadow: isDark ? '0 0 40px rgba(122,21,37,0.3)' : 'none',
             }}
           >
             for the web.
@@ -160,13 +160,12 @@ function Hero() {
         {/* SUBTEXT */}
         <motion.p
           variants={itemVariants}
-          className="font-mono text-sm text-[#4A4244] dark:text-[#958E85] mb-10 tracking-wide"
+          className="font-mono text-sm text-t2 mb-10 tracking-wide"
         >
           Full stack developer
-          <span className="mx-3 text-[#C0B8B9] dark:text-[#4A4540]">·</span>
+          <span className="mx-3 text-t3 opacity-40">·</span>
           MCA &apos;26
-          <span className="mx-3 text-[#C0B8B9] dark:text-[#4A4540]">·</span>3
-          live projects
+          <span className="mx-3 text-t3 opacity-40">·</span>3 live projects
         </motion.p>
 
         {/* BUTTONS */}
@@ -179,20 +178,22 @@ function Hero() {
             onClick={() => play('pop')}
             className="px-7 py-3.5 text-white text-sm font-semibold rounded-lg transition-all duration-200 flex items-center gap-1.5"
             style={{
-              background: isDark ? '#FF6D1F' : '#710014',
+              background: isDark ? '#7A1525' : '#710014',
               boxShadow: isDark
-                ? '0 0 25px rgba(255,109,31,0.35), 0 4px 15px rgba(0,0,0,0.3)'
+                ? '0 0 25px rgba(122,21,37,0.4), 0 4px 15px rgba(0,0,0,0.3)'
                 : '0 2px 8px rgba(113,0,20,0.25)',
             }}
             onMouseEnter={(e) => {
               if (isDark)
                 e.currentTarget.style.boxShadow =
-                  '0 0 40px rgba(255,109,31,0.5), 0 8px 25px rgba(0,0,0,0.4)'
+                  '0 0 40px rgba(122,21,37,0.55), 0 8px 25px rgba(0,0,0,0.4)'
+              e.currentTarget.style.background = isDark ? '#A02035' : '#5A0010'
             }}
             onMouseLeave={(e) => {
+              e.currentTarget.style.background = isDark ? '#7A1525' : '#710014'
               if (isDark)
                 e.currentTarget.style.boxShadow =
-                  '0 0 25px rgba(255,109,31,0.35), 0 4px 15px rgba(0,0,0,0.3)'
+                  '0 0 25px rgba(122,21,37,0.4), 0 4px 15px rgba(0,0,0,0.3)'
             }}
           >
             See my work <HiArrowRight className="text-sm" />
@@ -203,8 +204,8 @@ function Hero() {
             onClick={() => play('pop')}
             className={`px-7 py-3.5 text-sm font-semibold rounded-lg transition-all duration-200 flex items-center gap-1.5 ${
               isDark
-                ? 'bg-[rgba(255,255,255,0.05)] backdrop-blur-xl border border-[rgba(255,255,255,0.1)] text-[#F0EEE8] hover:border-[rgba(255,109,31,0.4)] hover:bg-[rgba(255,109,31,0.08)] shadow-[inset_0_1px_0_rgba(255,255,255,0.08)]'
-                : 'bg-transparent border border-[rgba(0,0,0,0.15)] text-[#0A0A0A] hover:bg-[#F5F0F1]'
+                ? 'bg-bg-card backdrop-blur-xl border border-border-base text-t1 hover:border-accent hover:bg-accent-dim shadow-[inset_0_1px_0_rgba(255,255,255,0.08)]'
+                : 'bg-transparent border border-border-mid text-t1 hover:bg-bg-alt'
             }`}
           >
             Download resume <HiArrowDown className="text-sm" />
@@ -214,9 +215,9 @@ function Hero() {
 
       {/* SCROLL HINT */}
       <motion.div
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 font-mono text-[10px] text-[#C0B8B9] dark:text-[#4A4540]"
+        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-1 font-mono text-[10px] text-t3 opacity-60"
         initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
+        animate={{ opacity: 0.6 }}
         transition={{ delay: 1.2, duration: 0.5 }}
         style={{ animation: 'bounce 2s infinite' }}
       >
@@ -229,8 +230,8 @@ function Hero() {
         ref={floatingRef}
         className={`absolute bottom-8 left-8 hidden md:flex items-center gap-2 rounded-full px-4 py-2 text-sm font-medium cursor-pointer transition-all duration-200 ${
           isDark
-            ? 'bg-[rgba(255,255,255,0.06)] backdrop-blur-xl border border-[rgba(255,109,31,0.25)] text-[#F0EEE8] shadow-[0_0_20px_rgba(255,109,31,0.1),0_8px_32px_rgba(0,0,0,0.3)]'
-            : 'bg-white border border-[rgba(0,0,0,0.08)] text-[#0A0A0A] shadow-md'
+            ? 'bg-bg-card backdrop-blur-xl border border-accent-dim text-t1 shadow-[0_0_20px_rgba(122,21,37,0.12),0_8px_32px_rgba(0,0,0,0.3)]'
+            : 'bg-white border border-border-base text-t1 shadow-md'
         }`}
         style={{
           opacity: 0,

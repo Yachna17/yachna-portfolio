@@ -69,22 +69,26 @@ function AdminProjects() {
     fetchProjects()
   }
 
+  const inputClass =
+    'bg-admin-bg border border-admin-border rounded-lg px-3 py-2 text-sm text-admin-t1 placeholder-admin-t3 outline-none focus:border-admin-accent font-mono transition-colors'
+
   return (
     <div className="flex flex-col gap-6">
-      <div className="bg-[rgba(255,255,255,0.02)] border border-[#1A0030] rounded-xl p-5">
-        <div className="font-mono text-[10px] uppercase tracking-widest text-[#5A4080] mb-4">
+      {/* LIST */}
+      <div className="bg-admin-bg-card border border-admin-border rounded-xl p-5">
+        <div className="font-mono text-[10px] uppercase tracking-widest text-admin-t2 mb-4">
           Projects ({projects.length})
         </div>
         <div className="flex flex-col gap-2">
           {projects.map((project) => (
             <div
               key={project._id}
-              className="flex items-center justify-between py-2 border-b border-[rgba(26,0,48,0.5)] last:border-b-0"
+              className="flex items-center justify-between py-2 border-b border-admin-border last:border-b-0"
             >
               <div>
-                <span className="text-sm text-[#C4A8F0]">{project.title}</span>
+                <span className="text-sm text-admin-t1">{project.title}</span>
                 {project.featured && (
-                  <span className="ml-2 font-mono text-[10px] text-[#710014] border border-[rgba(197,0,42,0.3)] rounded px-1.5 py-0.5">
+                  <span className="ml-2 font-mono text-[10px] text-accent border border-admin-accent-dim rounded px-1.5 py-0.5">
                     featured
                   </span>
                 )}
@@ -92,13 +96,13 @@ function AdminProjects() {
               <div className="flex gap-2">
                 <button
                   onClick={() => toggleFeatured(project)}
-                  className="font-mono text-[10px] text-[#9B5CF6] border border-[rgba(155,92,246,0.25)] rounded px-2 py-0.5 hover:bg-[rgba(155,92,246,0.1)] transition-colors"
+                  className="font-mono text-[10px] text-admin-accent border border-admin-accent-dim rounded px-2 py-0.5 hover:bg-admin-accent-dim transition-colors"
                 >
                   {project.featured ? 'unfeature' : 'feature'}
                 </button>
                 <button
                   onClick={() => handleDelete(project._id)}
-                  className="font-mono text-[10px] text-red-400 border border-[rgba(248,113,113,0.25)] rounded px-2 py-0.5 hover:bg-[rgba(248,113,113,0.1)] transition-colors"
+                  className="font-mono text-[10px] text-admin-danger border border-admin-danger-dim rounded px-2 py-0.5 hover:bg-admin-danger-dim transition-colors"
                 >
                   delete
                 </button>
@@ -108,8 +112,9 @@ function AdminProjects() {
         </div>
       </div>
 
-      <div className="bg-[rgba(255,255,255,0.02)] border border-[#1A0030] rounded-xl p-5">
-        <div className="font-mono text-[10px] uppercase tracking-widest text-[#5A4080] mb-4">
+      {/* ADD FORM */}
+      <div className="bg-admin-bg-card border border-admin-border rounded-xl p-5">
+        <div className="font-mono text-[10px] uppercase tracking-widest text-admin-t2 mb-4">
           Add project
         </div>
         <form onSubmit={handleAdd} className="flex flex-col gap-3">
@@ -118,7 +123,7 @@ function AdminProjects() {
             onChange={(e) => setForm({ ...form, title: e.target.value })}
             placeholder="Project title"
             required
-            className="bg-[rgba(255,255,255,0.03)] border border-[#1A0030] rounded-lg px-3 py-2 text-sm text-[#C4A8F0] placeholder-[#3A2060] outline-none focus:border-[#9B5CF6] font-mono transition-colors"
+            className={inputClass}
           />
           <textarea
             value={form.description}
@@ -126,33 +131,33 @@ function AdminProjects() {
             placeholder="Description"
             rows={3}
             required
-            className="bg-[rgba(255,255,255,0.03)] border border-[#1A0030] rounded-lg px-3 py-2 text-sm text-[#C4A8F0] placeholder-[#3A2060] outline-none focus:border-[#9B5CF6] font-mono transition-colors resize-none"
+            className={`${inputClass} resize-none`}
           />
           <input
             value={form.techStack}
             onChange={(e) => setForm({ ...form, techStack: e.target.value })}
             placeholder="Tech stack (comma separated) e.g. React, Node.js"
-            className="bg-[rgba(255,255,255,0.03)] border border-[#1A0030] rounded-lg px-3 py-2 text-sm text-[#C4A8F0] placeholder-[#3A2060] outline-none focus:border-[#9B5CF6] font-mono transition-colors"
+            className={inputClass}
           />
           <input
             value={form.liveUrl}
             onChange={(e) => setForm({ ...form, liveUrl: e.target.value })}
             placeholder="Live URL (optional)"
-            className="bg-[rgba(255,255,255,0.03)] border border-[#1A0030] rounded-lg px-3 py-2 text-sm text-[#C4A8F0] placeholder-[#3A2060] outline-none focus:border-[#9B5CF6] font-mono transition-colors"
+            className={inputClass}
           />
           <input
             value={form.githubUrl}
             onChange={(e) => setForm({ ...form, githubUrl: e.target.value })}
             placeholder="GitHub URL (optional)"
-            className="bg-[rgba(255,255,255,0.03)] border border-[#1A0030] rounded-lg px-3 py-2 text-sm text-[#C4A8F0] placeholder-[#3A2060] outline-none focus:border-[#9B5CF6] font-mono transition-colors"
+            className={inputClass}
           />
           <input
             value={form.imageUrl}
             onChange={(e) => setForm({ ...form, imageUrl: e.target.value })}
             placeholder="Image URL (optional) — paste Cloudinary or imgur link"
-            className="bg-[rgba(255,255,255,0.03)] border border-[#1A0030] rounded-lg px-3 py-2 text-sm text-[#C4A8F0] placeholder-[#3A2060] outline-none focus:border-[#9B5CF6] font-mono transition-colors"
+            className={inputClass}
           />
-          <label className="flex items-center gap-2 font-mono text-xs text-[#C4A8F0] cursor-pointer">
+          <label className="flex items-center gap-2 font-mono text-xs text-admin-t1 cursor-pointer">
             <input
               type="checkbox"
               checked={form.featured}
@@ -161,11 +166,17 @@ function AdminProjects() {
             />
             Featured project (shows full width)
           </label>
-          {msg && <p className="font-mono text-xs text-green-400">{msg}</p>}
+          {msg && (
+            <p
+              className={`font-mono text-xs ${msg.startsWith('Error') ? 'text-admin-danger' : 'text-admin-success'}`}
+            >
+              {msg}
+            </p>
+          )}
           <button
             type="submit"
             disabled={loading}
-            className="w-full py-2.5 bg-[#710014] text-white text-sm font-semibold rounded-lg hover:bg-[#5A0010] transition-colors disabled:opacity-50 font-mono"
+            className="w-full py-2.5 bg-accent text-white text-sm font-semibold rounded-lg hover:bg-accent-hover transition-colors disabled:opacity-50 font-mono"
           >
             {loading ? 'Adding...' : '+ Add project'}
           </button>

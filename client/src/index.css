@@ -149,3 +149,21 @@
   position: relative;
   z-index: 1;
 }
+
+/* ── ADMIN THEME ── */
+:root {
+  --admin-bg: #04000a;
+  --admin-bg-card: #060010;
+  --admin-bg-hover: #0d0020;
+  --admin-border: #1a0030;
+  --admin-border-mid: #2a0050;
+  --admin-text-1: #c4a8f0;
+  --admin-text-2: #5a4080;
+  --admin-text-3: #3a2060;
+  --admin-accent: #9b5cf6;
+  --admin-accent-dim: rgba(155, 92, 246, 0.1);
+  --admin-accent-hover: #7c3aed;
+  --admin-danger: #f87171;
+  --admin-danger-dim: rgba(248, 113, 113, 0.1);
+  --admin-success: #4ade80;
+}

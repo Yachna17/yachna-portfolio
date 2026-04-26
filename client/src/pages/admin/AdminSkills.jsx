@@ -47,28 +47,31 @@ function AdminSkills() {
     fetchSkills()
   }
 
+  const inputClass =
+    'bg-admin-bg border border-admin-border rounded-lg px-3 py-2 text-sm text-admin-t1 placeholder-admin-t3 outline-none focus:border-admin-accent font-mono transition-colors'
+
   return (
     <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
       {/* CURRENT SKILLS */}
-      <div className="bg-[rgba(255,255,255,0.02)] border border-[#1A0030] rounded-xl p-5">
-        <div className="font-mono text-[10px] uppercase tracking-widest text-[#5A4080] mb-4">
+      <div className="bg-admin-bg-card border border-admin-border rounded-xl p-5">
+        <div className="font-mono text-[10px] uppercase tracking-widest text-admin-t2 mb-4">
           Current skills ({skills.length})
         </div>
         <div className="flex flex-col gap-1 max-h-96 overflow-y-auto">
           {skills.map((skill) => (
             <div
               key={skill._id}
-              className="flex items-center justify-between py-2 border-b border-[rgba(26,0,48,0.5)] last:border-b-0"
+              className="flex items-center justify-between py-2 border-b border-admin-border last:border-b-0"
             >
-              <span className="text-sm text-[#C4A8F0]">
+              <span className="text-sm text-admin-t1">
                 {skill.name}
-                <span className="text-[#5A4080] ml-2 text-xs">
+                <span className="text-admin-t2 ml-2 text-xs">
                   · {skill.category}
                 </span>
               </span>
               <button
                 onClick={() => handleDelete(skill._id)}
-                className="font-mono text-[10px] text-red-400 border border-[rgba(248,113,113,0.25)] rounded px-2 py-0.5 hover:bg-[rgba(248,113,113,0.1)] transition-colors"
+                className="font-mono text-[10px] text-admin-danger border border-admin-danger-dim rounded px-2 py-0.5 hover:bg-admin-danger-dim transition-colors"
               >
                 delete
               </button>
@@ -78,8 +81,8 @@ function AdminSkills() {
       </div>
 
       {/* ADD SKILL */}
-      <div className="bg-[rgba(255,255,255,0.02)] border border-[#1A0030] rounded-xl p-5">
-        <div className="font-mono text-[10px] uppercase tracking-widest text-[#5A4080] mb-4">
+      <div className="bg-admin-bg-card border border-admin-border rounded-xl p-5">
+        <div className="font-mono text-[10px] uppercase tracking-widest text-admin-t2 mb-4">
           Add skill
         </div>
         <form onSubmit={handleAdd} className="flex flex-col gap-3">
@@ -88,31 +91,41 @@ function AdminSkills() {
             onChange={(e) => setForm({ ...form, name: e.target.value })}
             placeholder="Skill name e.g. Docker"
             required
-            className="bg-[rgba(255,255,255,0.03)] border border-[#1A0030] rounded-lg px-3 py-2 text-sm text-[#C4A8F0] placeholder-[#3A2060] outline-none focus:border-[#9B5CF6] font-mono transition-colors"
+            className={inputClass}
           />
           <input
             value={form.icon}
             onChange={(e) => setForm({ ...form, icon: e.target.value })}
             placeholder="Devicon class e.g. devicon-docker-plain colored"
             required
-            className="bg-[rgba(255,255,255,0.03)] border border-[#1A0030] rounded-lg px-3 py-2 text-sm text-[#C4A8F0] placeholder-[#3A2060] outline-none focus:border-[#9B5CF6] font-mono transition-colors"
+            className={inputClass}
           />
           <select
             value={form.category}
             onChange={(e) => setForm({ ...form, category: e.target.value })}
-            className="bg-[rgba(255,255,255,0.03)] border border-[#1A0030] rounded-lg px-3 py-2 text-sm text-[#C4A8F0] outline-none focus:border-[#9B5CF6] font-mono transition-colors"
+            className={inputClass}
           >
             {categories.map((c) => (
-              <option key={c} value={c}>
+              <option
+                key={c}
+                value={c}
+                className="bg-admin-bg-card text-admin-t1"
+              >
                 {c}
               </option>
             ))}
           </select>
-          {msg && <p className="font-mono text-xs text-green-400">{msg}</p>}
+          {msg && (
+            <p
+              className={`font-mono text-xs ${msg.startsWith('Error') ? 'text-admin-danger' : 'text-admin-success'}`}
+            >
+              {msg}
+            </p>
+          )}
           <button
             type="submit"
             disabled={loading}
-            className="w-full py-2.5 bg-[#710014] text-white text-sm font-semibold rounded-lg hover:bg-[#5A0010] transition-colors disabled:opacity-50 font-mono"
+            className="w-full py-2.5 bg-accent text-white text-sm font-semibold rounded-lg hover:bg-accent-hover transition-colors disabled:opacity-50 font-mono"
           >
             {loading ? 'Adding...' : '+ Add skill'}
           </button>

@@ -28,10 +28,10 @@ function AdminDashboard() {
   if (!session) return null
 
   return (
-    <div className="min-h-screen bg-[#04000A] text-[#C4A8F0]">
+    <div className="min-h-screen bg-admin-bg text-admin-t1">
       {/* TOP BAR */}
-      <div className="flex items-center justify-between px-6 py-3 bg-[#030008] border-b border-[#1A0030]">
-        <div className="font-mono text-sm text-[#9B5CF6]">
+      <div className="flex items-center justify-between px-6 py-3 bg-admin-bg-card border-b border-admin-border">
+        <div className="font-mono text-sm text-admin-accent">
           ⬡ admin · yachna.cv
         </div>
         <div className="flex items-center gap-4">
@@ -42,8 +42,8 @@ function AdminDashboard() {
                 onClick={() => setActiveTab(tab)}
                 className={`font-mono text-xs px-3 py-1.5 rounded transition-all duration-150 ${
                   activeTab === tab
-                    ? 'bg-[rgba(155,92,246,0.15)] text-[#9B5CF6] border border-[rgba(155,92,246,0.3)]'
-                    : 'text-[#5A4080] hover:text-[#9B5CF6]'
+                    ? 'bg-admin-accent-dim text-admin-accent border border-admin-accent-dim'
+                    : 'text-admin-t2 hover:text-admin-accent'
                 }`}
               >
                 {tab}
@@ -52,7 +52,7 @@ function AdminDashboard() {
           </div>
           <button
             onClick={handleLogout}
-            className="font-mono text-xs text-[#3A2060] hover:text-red-400 transition-colors duration-200"
+            className="font-mono text-xs text-admin-t3 hover:text-admin-danger transition-colors duration-200"
           >
             logout
           </button>

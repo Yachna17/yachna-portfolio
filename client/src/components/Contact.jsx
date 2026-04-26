@@ -31,19 +31,17 @@ function Contact() {
   }
 
   const inputBase =
-    'bg-white dark:bg-[rgba(255,255,255,0.04)] dark:backdrop-blur-xl border rounded-lg px-4 py-3 text-sm text-[#0A0A0A] dark:text-[#F0EEE8] placeholder-[#C0B8B9] dark:placeholder-[#4A4540] outline-none transition-all duration-200 focus:border-[#710014] dark:focus:border-[#FF6D1F] dark:[box-shadow:inset_0_1px_0_rgba(255,255,255,0.06),inset_0_-1px_0_rgba(0,0,0,0.1)] dark:focus:[box-shadow:0_0_0_1px_rgba(255,109,31,0.3),inset_0_1px_0_rgba(255,255,255,0.06)]'
+    'bg-white dark:bg-bg-card dark:backdrop-blur-xl border rounded-lg px-4 py-3 text-sm text-t1 placeholder-t3 outline-none transition-all duration-200 focus:border-accent dark:focus:[box-shadow:0_0_0_1px_rgba(122,21,37,0.3),inset_0_1px_0_rgba(255,255,255,0.06)]'
 
   const inputBorder = (hasError) =>
-    hasError
-      ? 'border-red-400 dark:border-red-500'
-      : 'border-[rgba(0,0,0,0.08)] dark:border-[rgba(255,255,255,0.08)]'
+    hasError ? 'border-red-400 dark:border-red-500' : 'border-border-base'
 
   return (
     <section id="contact" className="py-28 px-6 bg-[#F7F4F4] dark:bg-[#141212]">
       <div className="max-w-5xl mx-auto">
         {/* EYEBROW */}
         <motion.p
-          className="font-mono text-xs text-[#710014] dark:text-[#FF6D1F] dark:[text-shadow:0_0_15px_rgba(255,109,31,0.4)] uppercase tracking-widest mb-3"
+          className="font-mono text-xs text-accent uppercase tracking-widest mb-3"
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
@@ -62,16 +60,14 @@ function Contact() {
             viewport={{ once: true }}
           >
             <h2
-              className="font-head font-bold text-[#0A0A0A] dark:text-[#F0EEE8] tracking-tight mb-4 leading-tight"
+              className="font-head font-bold text-t1 tracking-tight mb-4 leading-tight"
               style={{ fontSize: 'clamp(26px, 3vw, 36px)' }}
             >
               Have a project in mind?{' '}
-              <span className="text-[#710014] dark:text-[#FF6D1F] dark:[text-shadow:0_0_20px_rgba(255,109,31,0.3)]">
-                Let&apos;s build it.
-              </span>
+              <span className="text-accent">Let&apos;s build it.</span>
             </h2>
 
-            <p className="text-sm text-[#4A4244] dark:text-[#958E85] leading-relaxed mb-8">
+            <p className="text-sm text-t2 leading-relaxed mb-8">
               I&apos;m open to full-time roles, internships, and freelance
               projects. I typically reply within 24 hours.
             </p>
@@ -84,9 +80,9 @@ function Contact() {
                 target="_blank"
                 rel="noreferrer"
                 onClick={() => play('pop')}
-                className="flex items-center gap-3 px-4 py-3 bg-white dark:bg-[rgba(255,255,255,0.04)] dark:backdrop-blur-xl border border-[rgba(0,0,0,0.08)] dark:border-[rgba(255,255,255,0.07)] rounded-lg text-sm text-[#4A4244] dark:text-[#958E85] dark:[box-shadow:inset_0_1px_0_rgba(255,255,255,0.06)] hover:border-[rgba(0,0,0,0.15)] dark:hover:[border-color:rgba(255,109,31,0.3)] dark:hover:[background:rgba(255,109,31,0.06)] transition-all duration-200"
+                className="flex items-center gap-3 px-4 py-3 bg-white dark:bg-bg-card dark:backdrop-blur-xl border border-border-base rounded-lg text-sm text-t2 hover:border-border-mid dark:hover:border-accent dark:hover:bg-accent-dim transition-all duration-200"
               >
-                <div className="w-7 h-7 bg-[#F7F4F4] dark:bg-[rgba(255,255,255,0.05)] dark:border dark:border-[rgba(255,255,255,0.08)] rounded-lg flex items-center justify-center flex-shrink-0">
+                <div className="w-7 h-7 bg-bg-alt border border-border-base rounded-lg flex items-center justify-center flex-shrink-0">
                   <FaLinkedinIn className="text-[#0A66C2] text-sm" />
                 </div>
                 linkedin.com/in/yachna-r
@@ -98,10 +94,10 @@ function Contact() {
                 target="_blank"
                 rel="noreferrer"
                 onClick={() => play('pop')}
-                className="flex items-center gap-3 px-4 py-3 bg-white dark:bg-[rgba(255,255,255,0.04)] dark:backdrop-blur-xl border border-[rgba(0,0,0,0.08)] dark:border-[rgba(255,255,255,0.07)] rounded-lg text-sm text-[#4A4244] dark:text-[#958E85] dark:[box-shadow:inset_0_1px_0_rgba(255,255,255,0.06)] hover:border-[rgba(0,0,0,0.15)] dark:hover:[border-color:rgba(255,109,31,0.3)] dark:hover:[background:rgba(255,109,31,0.06)] transition-all duration-200"
+                className="flex items-center gap-3 px-4 py-3 bg-white dark:bg-bg-card dark:backdrop-blur-xl border border-border-base rounded-lg text-sm text-t2 hover:border-border-mid dark:hover:border-accent dark:hover:bg-accent-dim transition-all duration-200"
               >
-                <div className="w-7 h-7 bg-[#F7F4F4] dark:bg-[rgba(255,255,255,0.05)] dark:border dark:border-[rgba(255,255,255,0.08)] rounded-lg flex items-center justify-center flex-shrink-0">
-                  <FaGithub className="text-[#0A0A0A] dark:text-[#F0EEE8] text-sm" />
+                <div className="w-7 h-7 bg-bg-alt border border-border-base rounded-lg flex items-center justify-center flex-shrink-0">
+                  <FaGithub className="text-t1 text-sm" />
                 </div>
                 github.com/Yachna17
               </a>
@@ -110,9 +106,9 @@ function Contact() {
               <a
                 href="mailto:yachnarupwal@gmail.com"
                 onClick={() => play('pop')}
-                className="flex items-center gap-3 px-4 py-3 bg-white dark:bg-[rgba(255,255,255,0.04)] dark:backdrop-blur-xl border border-[rgba(0,0,0,0.08)] dark:border-[rgba(255,255,255,0.07)] rounded-lg text-sm text-[#4A4244] dark:text-[#958E85] dark:[box-shadow:inset_0_1px_0_rgba(255,255,255,0.06)] hover:border-[rgba(0,0,0,0.15)] dark:hover:[border-color:rgba(255,109,31,0.3)] dark:hover:[background:rgba(255,109,31,0.06)] transition-all duration-200"
+                className="flex items-center gap-3 px-4 py-3 bg-white dark:bg-bg-card dark:backdrop-blur-xl border border-border-base rounded-lg text-sm text-t2 hover:border-border-mid dark:hover:border-accent dark:hover:bg-accent-dim transition-all duration-200"
               >
-                <div className="w-7 h-7 bg-[#F7F4F4] dark:bg-[rgba(255,255,255,0.05)] dark:border dark:border-[rgba(255,255,255,0.08)] rounded-lg flex items-center justify-center flex-shrink-0">
+                <div className="w-7 h-7 bg-bg-alt border border-border-base rounded-lg flex items-center justify-center flex-shrink-0">
                   <MdEmail className="text-[#EA4335] text-sm" />
                 </div>
                 yachnarupwal@gmail.com
@@ -132,10 +128,10 @@ function Contact() {
                 <div className="w-14 h-14 rounded-full bg-green-50 dark:bg-[rgba(34,197,94,0.08)] border border-green-200 dark:border-[rgba(34,197,94,0.2)] flex items-center justify-center dark:[box-shadow:0_0_20px_rgba(34,197,94,0.15)]">
                   <HiCheckCircle className="text-2xl text-green-500 dark:text-green-400" />
                 </div>
-                <h3 className="font-head font-bold text-lg text-[#0A0A0A] dark:text-[#F0EEE8]">
+                <h3 className="font-head font-bold text-lg text-t1">
                   Message sent!
                 </h3>
-                <p className="text-sm text-[#4A4244] dark:text-[#958E85]">
+                <p className="text-sm text-t2">
                   I&apos;ll reply within 24 hours.
                 </p>
                 <button
@@ -143,7 +139,7 @@ function Contact() {
                     setStatus('idle')
                     play('tick')
                   }}
-                  className="font-mono text-xs text-[#710014] dark:text-[#FF6D1F] hover:underline mt-2 flex items-center gap-1"
+                  className="font-mono text-xs text-accent hover:underline mt-2 flex items-center gap-1"
                 >
                   Send another <HiArrowRight className="text-xs" />
                 </button>
@@ -155,7 +151,7 @@ function Contact() {
               >
                 {/* NAME */}
                 <div className="flex flex-col gap-1.5">
-                  <label className="font-mono text-[10px] uppercase tracking-widest text-[#8A8082] dark:text-[#4A4540]">
+                  <label className="font-mono text-[10px] uppercase tracking-widest text-t3">
                     name
                   </label>
                   <input
@@ -173,7 +169,7 @@ function Contact() {
 
                 {/* EMAIL */}
                 <div className="flex flex-col gap-1.5">
-                  <label className="font-mono text-[10px] uppercase tracking-widest text-[#8A8082] dark:text-[#4A4540]">
+                  <label className="font-mono text-[10px] uppercase tracking-widest text-t3">
                     email
                   </label>
                   <input
@@ -197,7 +193,7 @@ function Contact() {
 
                 {/* MESSAGE */}
                 <div className="flex flex-col gap-1.5">
-                  <label className="font-mono text-[10px] uppercase tracking-widest text-[#8A8082] dark:text-[#4A4540]">
+                  <label className="font-mono text-[10px] uppercase tracking-widest text-t3">
                     message
                   </label>
                   <textarea
@@ -231,7 +227,7 @@ function Contact() {
                   type="submit"
                   onClick={() => status === 'idle' && play('pop')}
                   disabled={status === 'loading'}
-                  className="w-full py-3.5 bg-[#710014] dark:bg-[#FF6D1F] text-white text-sm font-semibold rounded-lg hover:bg-[#5A0010] dark:hover:bg-[#FF8C4A] transition-all duration-200 disabled:opacity-60 disabled:cursor-not-allowed dark:[box-shadow:0_0_20px_rgba(255,109,31,0.25)] dark:hover:[box-shadow:0_0_30px_rgba(255,109,31,0.4)] flex items-center justify-center gap-2"
+                  className="w-full py-3.5 bg-accent text-white text-sm font-semibold rounded-lg hover:bg-accent-hover transition-all duration-200 disabled:opacity-60 disabled:cursor-not-allowed flex items-center justify-center gap-2"
                 >
                   {status === 'loading' ? (
                     'Sending...'

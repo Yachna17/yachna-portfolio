@@ -69,7 +69,7 @@ function Education() {
       <div className="max-w-3xl mx-auto">
         {/* EYEBROW */}
         <motion.p
-          className="font-mono text-xs text-[#710014] dark:text-[#FF6D1F] dark:[text-shadow:0_0_15px_rgba(255,109,31,0.4)] uppercase tracking-widest mb-3"
+          className="font-mono text-xs text-accent uppercase tracking-widest mb-3"
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
@@ -80,7 +80,7 @@ function Education() {
 
         {/* HEADING */}
         <motion.h2
-          className="font-head font-bold text-[#0A0A0A] dark:text-[#F0EEE8] tracking-tight mb-16"
+          className="font-head font-bold text-t1 tracking-tight mb-16"
           style={{ fontSize: 'clamp(28px, 3vw, 42px)' }}
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -93,7 +93,7 @@ function Education() {
         {/* TIMELINE */}
         <div className="relative pl-8">
           {/* VERTICAL LINE */}
-          <div className="absolute left-0 top-2 bottom-0 w-0.5 bg-gradient-to-b from-[#710014] dark:from-[#FF6D1F] to-transparent dark:[box-shadow:0_0_8px_rgba(255,109,31,0.3)]" />
+          <div className="absolute left-0 top-2 bottom-0 w-0.5 bg-gradient-to-b from-accent to-transparent" />
 
           {timelineItems.map((item, index) => (
             <motion.div
@@ -107,24 +107,20 @@ function Education() {
               {/* DOT */}
               <div
                 className={`absolute -left-8 top-1.5 w-3 h-3 rounded-full border-2 border-[#FAFAFA] dark:border-[#181818] ${
-                  item.type === 'certification'
-                    ? 'bg-[#D97706]'
-                    : 'bg-[#710014] dark:bg-[#FF6D1F]'
+                  item.type === 'certification' ? 'bg-amber' : 'bg-accent'
                 }`}
                 style={{
                   boxShadow:
                     item.type === 'certification'
                       ? '0 0 0 3px rgba(217,119,6,0.2), 0 0 12px rgba(217,119,6,0.2)'
-                      : '0 0 0 3px rgba(255,109,31,0.2), 0 0 12px rgba(255,109,31,0.2)',
+                      : '0 0 0 3px rgba(122,21,37,0.25), 0 0 12px rgba(122,21,37,0.2)',
                 }}
               />
 
               {/* YEAR / TYPE LABEL */}
               <div
                 className={`font-mono text-xs mb-2 font-medium flex items-center gap-1.5 ${
-                  item.type === 'certification'
-                    ? 'text-[#D97706]'
-                    : 'text-[#710014] dark:text-[#FF6D1F] dark:[text-shadow:0_0_10px_rgba(255,109,31,0.3)]'
+                  item.type === 'certification' ? 'text-amber' : 'text-accent'
                 }`}
               >
                 {item.type === 'certification' ? (
@@ -142,27 +138,27 @@ function Education() {
 
               {/* CARD */}
               <div
-                className={`bg-white dark:bg-[rgba(255,255,255,0.04)] dark:backdrop-blur-[25px] rounded-xl p-5 transition-all duration-200 dark:[box-shadow:inset_0_1px_0_rgba(255,255,255,0.07),0_8px_30px_rgba(0,0,0,0.3)] ${
+                className={`bg-white dark:bg-bg-card dark:backdrop-blur-[25px] rounded-xl p-5 transition-all duration-200 dark:[box-shadow:inset_0_1px_0_rgba(255,255,255,0.07),0_8px_30px_rgba(0,0,0,0.3)] ${
                   item.type === 'certification'
-                    ? 'border border-[#D97706]/20 dark:hover:[border-color:rgba(245,158,11,0.3)]'
-                    : 'border border-[#E4DFE0] dark:border-[rgba(255,255,255,0.08)] dark:hover:[border-color:rgba(255,109,31,0.2)]'
+                    ? 'border border-[#D97706]/20 dark:hover:[border-color:rgba(217,119,6,0.3)]'
+                    : 'border border-border-base dark:hover:border-accent'
                 }`}
               >
                 {/* CERT BADGE */}
                 {item.type === 'certification' && (
-                  <div className="inline-flex items-center gap-1.5 font-mono text-[10px] text-[#D97706] border border-[#D97706]/25 rounded px-2 py-0.5 bg-[#D97706]/05 mb-3">
+                  <div className="inline-flex items-center gap-1.5 font-mono text-[10px] text-amber border border-[#D97706]/25 rounded px-2 py-0.5 bg-[#D97706]/5 mb-3">
                     <HiTrophy className="text-xs" />
                     certification
                   </div>
                 )}
 
                 {/* TITLE */}
-                <h3 className="font-head font-bold text-[17px] text-[#0A0A0A] dark:text-[#F0EEE8] mb-1">
+                <h3 className="font-head font-bold text-[17px] text-t1 mb-1">
                   {item.type === 'certification' ? item.name : item.degree}
                 </h3>
 
                 {/* SUBTITLE */}
-                <p className="text-sm text-[#4A4244] dark:text-[#958E85] mb-3">
+                <p className="text-sm text-t2 mb-3">
                   {item.type === 'certification'
                     ? item.issuer
                     : `${item.institution} · ${item.location}`}
@@ -174,7 +170,7 @@ function Education() {
                     {item.coursework.map((course) => (
                       <span
                         key={course}
-                        className="font-mono text-[10px] text-[#4A4244] dark:text-[#958E85] border border-[#E4DFE0] dark:border-[rgba(255,255,255,0.08)] rounded px-2 py-1 bg-[#F7F4F4] dark:bg-[rgba(255,255,255,0.03)]"
+                        className="font-mono text-[10px] text-t2 border border-border-base rounded px-2 py-1 bg-bg-alt"
                       >
                         {course}
                       </span>
@@ -188,7 +184,7 @@ function Education() {
                     href={item.credentialUrl}
                     target="_blank"
                     rel="noreferrer"
-                    className="font-mono text-xs text-[#710014] dark:text-[#FF6D1F] hover:underline"
+                    className="font-mono text-xs text-accent hover:underline"
                   >
                     View credential ↗
                   </a>

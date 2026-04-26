@@ -29,15 +29,13 @@ function RenderResults() {
       items={results}
       onRender={({ item, active }) =>
         typeof item === 'string' ? (
-          <div className="font-mono text-[10px] uppercase tracking-widest text-[#8A8082] dark:text-[#8A6458] px-4 py-2 border-t border-[#E4DFE0] dark:border-[#3D2416] first:border-t-0">
+          <div className="font-mono text-[10px] uppercase tracking-widest text-t3 px-4 py-2 border-t border-border-base first:border-t-0">
             {item}
           </div>
         ) : (
           <div
             className={`flex items-center justify-between px-4 py-2.5 cursor-pointer transition-colors duration-100 ${
-              active
-                ? 'bg-[#FDF5F6] dark:bg-[#2A1010] text-[#0A0A0A] dark:text-[#F5EDE8]'
-                : 'text-[#4A4244] dark:text-[#C4A898]'
+              active ? 'bg-accent-dim text-t1' : 'text-t2'
             }`}
           >
             <div className="flex items-center gap-3">
@@ -53,7 +51,7 @@ function RenderResults() {
                 {item.shortcut.map((sc) => (
                   <kbd
                     key={sc}
-                    className="font-mono text-[10px] px-1.5 py-0.5 bg-[#F7F4F4] dark:bg-[#311E14] border border-[#E4DFE0] dark:border-[#3D2416] rounded text-[#8A8082] dark:text-[#8A6458]"
+                    className="font-mono text-[10px] px-1.5 py-0.5 bg-bg-alt border border-border-base rounded text-t3"
                   >
                     {sc}
                   </kbd>
@@ -71,16 +69,14 @@ function PaletteContent() {
   return (
     <KBarPortal>
       <KBarPositioner className="fixed inset-0 z-[999] flex items-start justify-center pt-[20vh] px-4 bg-black/50 backdrop-blur-sm">
-        <KBarAnimator className="w-full max-w-lg bg-white dark:bg-[#271810] border border-[#E4DFE0] dark:border-[#3D2416] rounded-xl overflow-hidden shadow-2xl">
-          <div className="flex items-center gap-3 px-4 py-3 border-b border-[#E4DFE0] dark:border-[#3D2416]">
-            <span className="text-[#8A8082] dark:text-[#8A6458] text-sm">
-              ⌘
-            </span>
+        <KBarAnimator className="w-full max-w-lg bg-bg-card border border-border-base rounded-xl overflow-hidden shadow-2xl">
+          <div className="flex items-center gap-3 px-4 py-3 border-b border-border-base">
+            <span className="text-t3 text-sm">⌘</span>
             <KBarSearch
-              className="flex-1 bg-transparent outline-none text-sm text-[#0A0A0A] dark:text-[#F5EDE8] placeholder-[#C0B8B9] dark:placeholder-[#52352A] font-sans"
+              className="flex-1 bg-transparent outline-none text-sm text-t1 placeholder-t3 font-sans"
               defaultPlaceholder="Type a command or search..."
             />
-            <kbd className="font-mono text-[10px] px-1.5 py-0.5 bg-[#F7F4F4] dark:bg-[#311E14] border border-[#E4DFE0] dark:border-[#3D2416] rounded text-[#8A8082] dark:text-[#8A6458]">
+            <kbd className="font-mono text-[10px] px-1.5 py-0.5 bg-bg-alt border border-border-base rounded text-t3">
               esc
             </kbd>
           </div>

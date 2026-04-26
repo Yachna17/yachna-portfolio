@@ -76,7 +76,7 @@ function Projects() {
       <div className="max-w-5xl mx-auto">
         {/* EYEBROW */}
         <motion.p
-          className="font-mono text-xs text-[#710014] dark:text-[#FF6D1F] dark:[text-shadow:0_0_15px_rgba(255,109,31,0.4)] uppercase tracking-widest mb-3"
+          className="font-mono text-xs text-accent uppercase tracking-widest mb-3"
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
@@ -87,7 +87,7 @@ function Projects() {
 
         {/* HEADING */}
         <motion.h2
-          className="font-head font-bold text-[#0A0A0A] dark:text-[#F0EEE8] tracking-tight mb-10"
+          className="font-head font-bold text-t1 tracking-tight mb-10"
           style={{ fontSize: 'clamp(28px, 3vw, 42px)' }}
           initial={{ opacity: 0, y: 16 }}
           whileInView={{ opacity: 1, y: 0 }}
@@ -100,7 +100,7 @@ function Projects() {
         {/* FEATURED CARD */}
         {featured && (
           <motion.div
-            className="grid grid-cols-1 lg:grid-cols-2 bg-white dark:bg-[rgba(255,255,255,0.03)] dark:backdrop-blur-[30px] border border-[rgba(0,0,0,0.08)] dark:border-[rgba(255,255,255,0.08)] rounded-xl overflow-hidden mb-4 group transition-all duration-300 hover:border-[#710014] dark:hover:border-[rgba(255,109,31,0.3)] dark:[box-shadow:inset_0_1px_0_rgba(255,255,255,0.07),0_20px_60px_rgba(0,0,0,0.4)] dark:hover:[box-shadow:0_0_40px_rgba(255,109,31,0.08),inset_0_1px_0_rgba(255,255,255,0.09),0_25px_70px_rgba(0,0,0,0.5)] dark:hover:[transform:translateY(-3px)]"
+            className="grid grid-cols-1 lg:grid-cols-2 bg-white dark:bg-bg-card dark:backdrop-blur-[30px] border border-border-base rounded-xl overflow-hidden mb-4 group transition-all duration-300 hover:border-accent dark:hover:border-accent dark:[box-shadow:inset_0_1px_0_rgba(255,255,255,0.07),0_20px_60px_rgba(0,0,0,0.4)] dark:hover:[box-shadow:0_0_40px_rgba(122,21,37,0.1),inset_0_1px_0_rgba(255,255,255,0.09),0_25px_70px_rgba(0,0,0,0.5)] dark:hover:[transform:translateY(-3px)]"
             initial={{ opacity: 0, y: 24 }}
             whileInView={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5, delay: 0.15 }}
@@ -108,16 +108,16 @@ function Projects() {
           >
             {/* LEFT — INFO */}
             <div className="p-8 flex flex-col gap-4 justify-center">
-              <div className="font-mono text-[10px] uppercase tracking-widest text-[#710014] dark:text-[#FF6D1F] dark:[text-shadow:0_0_10px_rgba(255,109,31,0.3)]">
+              <div className="font-mono text-[10px] uppercase tracking-widest text-accent flex items-center gap-1">
                 <HiSparkles className="text-xs" />
                 featured project
               </div>
 
-              <h3 className="font-head font-bold text-[26px] text-[#0A0A0A] dark:text-[#F0EEE8] leading-tight tracking-tight">
+              <h3 className="font-head font-bold text-[26px] text-t1 leading-tight tracking-tight">
                 {featured.title}
               </h3>
 
-              <p className="text-sm text-[#4A4244] dark:text-[#958E85] leading-relaxed">
+              <p className="text-sm text-t2 leading-relaxed">
                 {featured.description}
               </p>
 
@@ -125,7 +125,7 @@ function Projects() {
                 {featured.techStack?.map((tech) => (
                   <span
                     key={tech}
-                    className="font-mono text-[10px] text-[#4A4244] dark:text-[#958E85] border border-[rgba(0,0,0,0.08)] dark:border-[rgba(255,255,255,0.08)] rounded px-2.5 py-1 bg-[#F7F4F4] dark:bg-[rgba(255,255,255,0.03)]"
+                    className="font-mono text-[10px] text-t2 border border-border-base rounded px-2.5 py-1 bg-bg-alt"
                   >
                     {tech}
                   </span>
@@ -139,7 +139,7 @@ function Projects() {
                     target="_blank"
                     rel="noreferrer"
                     onClick={() => play('pop')}
-                    className="flex items-center gap-1.5 px-4 py-2 bg-[#710014] dark:bg-[#FF6D1F] text-white text-sm font-semibold rounded-lg hover:bg-[#5A0010] dark:hover:bg-[#FF8C4A] transition-all duration-200 dark:[box-shadow:0_0_15px_rgba(255,109,31,0.3)] dark:hover:[box-shadow:0_0_25px_rgba(255,109,31,0.5)]"
+                    className="flex items-center gap-1.5 px-4 py-2 bg-accent text-white text-sm font-semibold rounded-lg hover:bg-accent-hover transition-all duration-200"
                   >
                     Live <HiArrowTopRightOnSquare className="text-xs" />
                   </a>
@@ -150,7 +150,7 @@ function Projects() {
                     target="_blank"
                     rel="noreferrer"
                     onClick={() => play('pop')}
-                    className="flex items-center gap-1.5 px-4 py-2 bg-transparent text-[#0A0A0A] dark:text-[#F0EEE8] text-sm font-medium rounded-lg border border-[rgba(0,0,0,0.12)] dark:border-[rgba(255,255,255,0.1)] hover:border-[#710014] dark:hover:border-[rgba(255,109,31,0.4)] hover:bg-[#FDF5F6] dark:hover:bg-[rgba(255,109,31,0.08)] transition-all duration-200 dark:bg-[rgba(255,255,255,0.03)] dark:backdrop-blur-xl"
+                    className="flex items-center gap-1.5 px-4 py-2 bg-transparent text-t1 text-sm font-medium rounded-lg border border-border-mid hover:border-accent hover:bg-accent-dim transition-all duration-200 dark:bg-bg-card dark:backdrop-blur-xl"
                   >
                     GitHub <HiArrowRight className="text-xs" />
                   </a>
@@ -159,7 +159,7 @@ function Projects() {
             </div>
 
             {/* RIGHT — MEDIA */}
-            <div className="min-h-[260px] lg:min-h-full bg-[#F7F4F4] dark:bg-[rgba(0,0,0,0.2)] border-t lg:border-t-0 lg:border-l border-[rgba(0,0,0,0.08)] dark:border-[rgba(255,255,255,0.07)] overflow-hidden relative">
+            <div className="min-h-[260px] lg:min-h-full bg-bg-alt border-t lg:border-t-0 lg:border-l border-border-base overflow-hidden relative">
               {featured.video ? (
                 <video
                   src={featured.video}
@@ -176,9 +176,9 @@ function Projects() {
                   className="w-full h-full object-cover"
                 />
               ) : (
-                <div className="w-full h-full min-h-[260px] flex flex-col items-center justify-center gap-3 text-[#C0B8B9] dark:text-[#4A4540] font-mono text-xs">
-                  <div className="w-12 h-12 rounded-full border border-[rgba(0,0,0,0.1)] dark:border-[rgba(255,109,31,0.2)] bg-[#FDF5F6] dark:bg-[rgba(255,109,31,0.06)] flex items-center justify-center text-lg dark:[box-shadow:0_0_12px_rgba(255,109,31,0.1)]">
-                    <HiPlay className="text-lg text-[#710014] dark:text-[#FF6D1F]" />
+                <div className="w-full h-full min-h-[260px] flex flex-col items-center justify-center gap-3 text-t3 font-mono text-xs">
+                  <div className="w-12 h-12 rounded-full border border-border-mid bg-accent-dim flex items-center justify-center text-lg">
+                    <HiPlay className="text-lg text-accent" />
                   </div>
                   <span>add screen recording</span>
                   <span className="text-[10px]">15–20s · mp4 · muted loop</span>
@@ -194,7 +194,7 @@ function Projects() {
             {grid.map((project, index) => (
               <motion.div
                 key={project._id}
-                className="bg-white dark:bg-[rgba(255,255,255,0.03)] dark:backdrop-blur-[25px] border border-[rgba(0,0,0,0.08)] dark:border-[rgba(255,255,255,0.07)] rounded-xl p-6 flex flex-col gap-4 cursor-default transition-all duration-200 hover:border-[#710014] dark:hover:border-[rgba(255,109,31,0.25)] hover:shadow-md hover:-translate-y-1 dark:[box-shadow:inset_0_1px_0_rgba(255,255,255,0.06),0_4px_20px_rgba(0,0,0,0.3)] dark:hover:[box-shadow:0_0_25px_rgba(255,109,31,0.08),inset_0_1px_0_rgba(255,255,255,0.08),0_8px_30px_rgba(0,0,0,0.4)] dark:hover:[transform:translateY(-3px)_scale(1.005)]"
+                className="bg-white dark:bg-bg-card dark:backdrop-blur-[25px] border border-border-base rounded-xl p-6 flex flex-col gap-4 cursor-default transition-all duration-200 hover:border-accent hover:shadow-md hover:-translate-y-1 dark:[box-shadow:inset_0_1px_0_rgba(255,255,255,0.06),0_4px_20px_rgba(0,0,0,0.3)] dark:hover:[box-shadow:0_0_25px_rgba(122,21,37,0.1),inset_0_1px_0_rgba(255,255,255,0.08),0_8px_30px_rgba(0,0,0,0.4)] dark:hover:[transform:translateY(-3px)_scale(1.005)]"
                 initial={{ opacity: 0, y: 24 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 transition={{ duration: 0.5, delay: index * 0.1 }}
@@ -202,7 +202,7 @@ function Projects() {
               >
                 {/* SCREENSHOT */}
                 {project.image && (
-                  <div className="w-full h-40 rounded-lg overflow-hidden border border-[rgba(0,0,0,0.06)] dark:border-[rgba(255,255,255,0.07)] bg-[#F7F4F4] dark:bg-[rgba(0,0,0,0.2)]">
+                  <div className="w-full h-40 rounded-lg overflow-hidden border border-border-base bg-bg-alt">
                     <img
                       src={project.image}
                       alt={project.title}
@@ -211,11 +211,11 @@ function Projects() {
                   </div>
                 )}
 
-                <h3 className="font-head font-bold text-[18px] text-[#0A0A0A] dark:text-[#F0EEE8] leading-tight">
+                <h3 className="font-head font-bold text-[18px] text-t1 leading-tight">
                   {project.title}
                 </h3>
 
-                <p className="text-sm text-[#4A4244] dark:text-[#958E85] leading-relaxed flex-1">
+                <p className="text-sm text-t2 leading-relaxed flex-1">
                   {project.description}
                 </p>
 
@@ -223,7 +223,7 @@ function Projects() {
                   {project.techStack?.map((tech) => (
                     <span
                       key={tech}
-                      className="font-mono text-[10px] text-[#4A4244] dark:text-[#958E85] border border-[rgba(0,0,0,0.08)] dark:border-[rgba(255,255,255,0.08)] rounded px-2.5 py-1 bg-[#F7F4F4] dark:bg-[rgba(255,255,255,0.03)]"
+                      className="font-mono text-[10px] text-t2 border border-border-base rounded px-2.5 py-1 bg-bg-alt"
                     >
                       {tech}
                     </span>
@@ -237,7 +237,7 @@ function Projects() {
                       target="_blank"
                       rel="noreferrer"
                       onClick={() => play('pop')}
-                      className="flex items-center gap-1 px-3 py-1.5 bg-[#710014] dark:bg-[#FF6D1F] text-white text-xs font-semibold rounded-lg hover:bg-[#5A0010] dark:hover:bg-[#FF8C4A] transition-all duration-200 dark:[box-shadow:0_0_10px_rgba(255,109,31,0.25)]"
+                      className="flex items-center gap-1 px-3 py-1.5 bg-accent text-white text-xs font-semibold rounded-lg hover:bg-accent-hover transition-all duration-200"
                     >
                       Live <HiArrowTopRightOnSquare className="text-xs" />
                     </a>
@@ -248,7 +248,7 @@ function Projects() {
                       target="_blank"
                       rel="noreferrer"
                       onClick={() => play('pop')}
-                      className="flex items-center gap-1 px-3 py-1.5 bg-transparent text-[#0A0A0A] dark:text-[#F0EEE8] text-xs font-medium rounded-lg border border-[rgba(0,0,0,0.1)] dark:border-[rgba(255,255,255,0.1)] hover:border-[#710014] dark:hover:border-[rgba(255,109,31,0.4)] hover:bg-[#FDF5F6] dark:hover:bg-[rgba(255,109,31,0.08)] transition-all duration-200 dark:bg-[rgba(255,255,255,0.03)]"
+                      className="flex items-center gap-1 px-3 py-1.5 bg-transparent text-t1 text-xs font-medium rounded-lg border border-border-base hover:border-accent hover:bg-accent-dim transition-all duration-200 dark:bg-bg-card"
                     >
                       GitHub <HiArrowRight className="text-xs" />
                     </a>
