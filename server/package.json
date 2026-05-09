@@ -2,7 +2,6 @@
   "name": "yachna-portfolio-server",
   "version": "1.0.0",
   "description": "Backend API for yachna.cv portfolio",
-  
   "dependencies": {
     "bcryptjs": "^3.0.3",
     "cookie-parser": "^1.4.7",
@@ -14,14 +13,15 @@
     "helmet": "^8.1.0",
     "jsonwebtoken": "^9.0.3",
     "mongoose": "^9.4.1",
-    "nodemailer": "^8.0.5"
+    "nodemailer": "^8.0.5",
+    "resend": "^6.12.3"
   },
   "devDependencies": {
     "nodemon": "^3.1.14"
   },
   "scripts": {
-  "start": "node index.js",
-  "dev": "nodemon index.js",
-  "test": "echo \"Error: no test specified\" && exit 1"
-}
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  }
 }
