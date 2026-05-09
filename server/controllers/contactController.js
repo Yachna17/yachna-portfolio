@@ -11,13 +11,18 @@ exports.send = async (req, res) => {
 
     const transporter = nodemailer.createTransport({
       host: "smtp.gmail.com",
-    port: 465,
-    secure: true,
-    family: 4,    
+      port: 465,
+      secure: true,
+      family: 4,
       auth: {
         user: process.env.EMAIL_USER,
         pass: process.env.EMAIL_PASS,
       },
+    });
+
+    transporter.verify((error) => {
+      if (error) console.log("Mailer verify failed:", error);
+      else console.log("Mailer ready ✓");
     });
 
     await transporter.sendMail({
