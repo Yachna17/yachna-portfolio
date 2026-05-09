@@ -1,6 +1,7 @@
-import { Resend } from "resend";
-const nodemailer = require("nodemailer");
+const { Resend } = require("resend");
 const Message = require("../models/Message");
+
+const resend = new Resend(process.env.RESEND_API_KEY);
 
 exports.send = async (req, res) => {
   const { name, email, message } = req.body;
@@ -10,10 +11,8 @@ exports.send = async (req, res) => {
     await Message.create({ name, email, message });
     console.log("Message saved to DB");
 
-    const resend = new Resend(process.env.RESEND_API_KEY);
-
     await resend.emails.send({
-      from: "onboarding@resend.dev", // use this until you verify a domain
+      from: "onboarding@resend.dev",
       to: "yachnarupwal@gmail.com",
       subject: `New message from ${name}`,
       text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,
