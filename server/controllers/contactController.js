@@ -1,3 +1,4 @@
+import { Resend } from "resend";
 const nodemailer = require("nodemailer");
 const Message = require("../models/Message");
 
@@ -9,33 +10,13 @@ exports.send = async (req, res) => {
     await Message.create({ name, email, message });
     console.log("Message saved to DB");
 
-    const transporter = nodemailer.createTransport({
-      host: "smtp.gmail.com",
-      port: 465,
-      secure: true,
-      family: 4,
-      auth: {
-        user: process.env.EMAIL_USER,
-        pass: process.env.EMAIL_PASS,
-      },
-    });
+    const resend = new Resend(process.env.RESEND_API_KEY);
 
-    transporter.verify((error) => {
-      if (error) console.log("Mailer verify failed:", error);
-      else console.log("Mailer ready ✓");
-    });
-
-    await transporter.sendMail({
-      from: `"${name}" <${process.env.EMAIL_USER}>`,
-      to: process.env.EMAIL_USER,
-      subject: `New message from ${name} — yachna.cv`,
-      html: `
-        <h3>New contact form submission</h3>
-        <p><strong>Name:</strong> ${name}</p>
-        <p><strong>Email:</strong> ${email}</p>
-        <p><strong>Message:</strong></p>
-        <p>${message}</p>
-      `,
+    await resend.emails.send({
+      from: "onboarding@resend.dev", // use this until you verify a domain
+      to: "yachnarupwal@gmail.com",
+      subject: `New message from ${name}`,
+      text: `Name: ${name}\nEmail: ${email}\nMessage: ${message}`,
     });
 
     console.log("Email sent successfully");
