@@ -199,7 +199,7 @@ function Hero() {
             See my work <HiArrowRight className="text-sm" />
           </a>
           <a
-            href="/resume.pdf"
+            href="/yachna_resume.pdf"
             download
             onClick={() => play('pop')}
             className={`px-7 py-3.5 text-sm font-semibold rounded-lg transition-all duration-200 flex items-center gap-1.5 ${

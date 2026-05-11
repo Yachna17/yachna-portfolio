@@ -179,7 +179,7 @@ function CommandPalette() {
       section: 'Actions',
       perform: () => {
         const a = document.createElement('a')
-        a.href = '/resume.pdf'
+        a.href = '/yachna_resume.pdf'
         a.download = 'Yachna_Resume.pdf'
         a.click()
       },
